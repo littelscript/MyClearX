@@ -1,5 +1,5 @@
 (function () {
-    var myclearx = angular.module('myclearx', ['ionic', 'myclearxControllers'])
+    var myclearx = angular.module('myclearx', ['ionic', 'MyClearXModule'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {       
@@ -58,7 +58,7 @@
       views: {
           'menuContent': {
               templateUrl: 'templates/product.html',
-              controller: 'productController'
+              controller: 'ProductController'
 
           }
       }

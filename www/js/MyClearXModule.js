@@ -1,5 +1,5 @@
 (function () {
-    var myclearx = angular.module('myclearxControllers', []);
+    var myclearx = angular.module('MyClearXModule', []);
 
     myclearx.controller('rootController', function ($scope, $http, $ionicPopup) {
         $scope.categorylist = ['All', 'Pesticides', 'Insecticides', 'Fertilisers', 'Seeds'];
