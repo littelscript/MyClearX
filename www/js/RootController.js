@@ -1,7 +1,7 @@
 (function () {
     var myclearx = angular.module('myclearx')
 
-    myclearx.controller('rootController', function ($scope, $http, $ionicPopup) {
+    myclearx.controller('RootController', function ($scope, $http, $ionicPopup) {
         $scope.categorylist = ['All', 'Pesticides', 'Insecticides', 'Fertilisers', 'Seeds'];
         $scope.packSize = ['Grams', 'Kgrams', 'tonn', 'mLiters', 'Liters']
         $scope.productList = [];
