@@ -1,0 +1,48 @@
+<ion-view view-title="Product">
+<ion-nav-bar class="bar-assertive myClearx-bar">
+     <ion-nav-back-button> </ion-nav-back-button> 
+     <ion-nav-buttons side="left"> <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button> </ion-nav-buttons>
+     <ion-nav-buttons side="right">        
+            
+        <button class="button button-icon button-clear ion-ios-cart"  ui-sref="app.cart" menu-close ><span class="cart-item-ind" ng-if="cartItems.length > 0"> </span></button>   
+      </ion-nav-buttons>
+
+  </ion-nav-bar>
+  <ion-content>
+
+     <div class="list card" ng-repeat ="a in selectedProduct">
+      <div class="item item-avatar">
+        <img ng-src="http://myclearx.com/myclearx/assets/{{a.Product_image}}">
+        <h2 >{{a.Product_name}}</h2>
+        <p>{{a.In_stock}} Items in stock </p>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" ng-src="http://myclearx.com/myclearx/assets/{{a.Product_image}}">
+        
+        <p class="no-margin"></p>
+         <p><b>Rs. {{a.Price}} Only</b> <br /> <b>Description: </b> <br /> <span ng-bind="a.Description"></span></p>
+            <div class="row">    
+               <div class="col ">Quantity</div>        
+                <div class="col col-67">                    
+                    <div class="in-dr-qty">
+                    <button class="button button-icon icon ion-ios-plus-empty button-small button-outline button-assertive" ng-click="itemcountInc()"></button>
+                    <input type="number" placeholder="0" ng-model="count"/>
+                    <button class="button button-icon icon ion-ios-minus-empty button-small button-outline button-assertive" ng-click="itemcountDesc()"></button>
+                    </div>                
+                </div>
+            </div>
+            <div class="row">
+            <div class="col"><hr /></div>
+            </div>
+            <div class="row">
+            <div class="col"></div>
+             <div class="col col-67  txt-right">
+                <button class="button button-assertive" ng-click="addToCart(selectedProduct)">Add to Cart&nbsp;<i class="icon ion-ios-cart"></i></button>
+             </div>            
+           </div>         
+      </div>     
+    </div>
+
+  </ion-content>
+</ion-view>

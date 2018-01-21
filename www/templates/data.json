@@ -1,0 +1,35 @@
+﻿{
+   "1":{
+      "id":"1",
+      "productImage":"img/200Img.png",
+      "productName":"Oxyrich",
+      "chemicalName":"‎Water, Dihydrogen oxide, H2O",
+      "brandName":"Manikchand",
+      "packaging":"1L",
+	  "price" : "20",
+	  "stockNum" : "100",
+	  "description": "button button-icon icon ion-ios-minus-empty button-small button-outline button-assertive"
+   },
+   "2":{
+      "id":"2",
+      "productImage":"img/200Img.png",
+      "productName":"Bailley",
+      "chemicalName":"‎Water, Dihydrogen oxide, H2O",
+      "brandName":"Parle Agro Group",
+      "packaging":"5L",
+	  "price" : "90",
+	  "stockNum" : "50",
+	  "description": "button button-icon icon ion-ios-minus-empty button-small button-outline button-assertive"
+   },
+   "3":{
+      "id":"3",
+      "productImage":"img/200Img.png",
+      "productName":"Kinley",
+      "chemicalName":"‎Water, Dihydrogen oxide, H2O",
+      "brandName":"Coca-Cola",
+      "packaging":"1L",
+	  "price" : "15",
+	  "stockNum" : "20",
+	  "description": "button button-icon icon ion-ios-minus-empty button-small button-outline button-assertive"
+   }
+}

@@ -1,0 +1,22 @@
+<ion-modal-view>
+ <ion-header-bar class=" no-padding">
+   <div class="row no-padding">
+     <div class="col col-90 modal-heading ">         
+      <h1 class="no-margin"> Filter </h1>
+     </div>
+      <div class="col no-padding txt-center"><button class="button ion-chevron-down button-clear button-dark full-width-height" ng-click="closeModal(1)"></button></div>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+   <div class="col">
+    <ion-list>
+      <ion-checkbox >Pesticides</ion-checkbox>
+      <ion-checkbox >Seeds</ion-checkbox>
+      <ion-checkbox >Fertiliser</ion-checkbox>
+    </ion-list>
+    
+          <button class="button button-block button-assertive" ng-click="closeModal(1)">Apply</button>
+     
+     </div>
+  </ion-content>
+</ion-modal-view>

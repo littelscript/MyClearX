@@ -1,0 +1,55 @@
+<ion-view view-title="my Clear X" ng-controller="StoreController">
+  <ion-nav-bar class="bar-assertive app-header">
+     <ion-nav-back-button> </ion-nav-back-button> 
+     <ion-nav-buttons side="left"> <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button> </ion-nav-buttons>
+     <ion-nav-buttons side="right">
+        <a class="button button-icon button-clear ion-ios-search-strong" href="#/app/search" menu-close></a>
+        <a class="button button-icon button-clear" href="#/app/cart" menu-close><i class="ion-ios-cart icon"></i></a>
+     </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+        <div class="padding-tb">
+            <div class="col" id="index_top_bar">
+                <ul class="category_block">
+                    <li ng-class="{ active: isSet(a) }" ng-repeat="a in categorylist"><a  ng-click="setStore(a)">{{a}}</a></li>                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="home-item-grid" >
+           <div class="pos-relative" ng-repeat="product in productList"> 
+                      
+            <div class="oe_product">
+                <div class="image_region">
+                    <div class="oe_product_image">
+                        <a href="#/app/home/:{{$index + 1}}" ng-click="productOpen($index + 1)">
+                            <img class="img img-responsive lazy" src="img/200Img.png">  
+                        </a>
+                    </div>
+                </div>
+            <div class="contain">
+                <div class="row">
+                    <div class="pname-long"> <span>{{product.productName}}</span> </div>
+                </div>
+                <div class="row">
+                    <div class="price-long pull-left"> <span>Rs. </span><span>{{product.price}}</span>&nbsp; </div>                   
+                </div>
+                <div class="row">
+                    <div class="c_price">  Expiry Date: 
+                        <div class="mr8" style="white-space: nowrap;">&nbsp;<span class="oe_currency_value">12-12-2018</span></div>
+                    </div>
+                </div>
+            </div>
+            </div>    
+           </div>
+           <div class="clearfix"></div>
+            
+        </div>
+          
+
+  </ion-content>
+    
+    <a class="add-product-btn button button-assertive" href="#/app/addProduct" ng-click="addProduct()"><span class="icon ion-plus"></span></a>
+    
+</ion-view>

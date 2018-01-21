@@ -1,0 +1,79 @@
+<ion-view view-title="{{cart.viewname}}" ng-controller="cartController as cart">
+    <ion-nav-bar class="bar-assertive myClearx-bar">
+     <ion-nav-back-button> </ion-nav-back-button> 
+     <ion-nav-buttons side="left"> <a class="button button-icon button-clear ion-android-arrow-back" menu-close href="#/app/home"> </a> </ion-nav-buttons>
+   
+  </ion-nav-bar>
+  <ion-content>
+  <div class="col cart-list">
+    <div class="list">
+        <div class="item item-thumbnail-left">
+          <img src="img/200Img.png">
+          <h2><span class="pull-left">Pretty Hate Machine</span> <span class="pull-right"> <a class="button button-icon icon ion-ios-close-empty button-small button-stable button-clear"></a></span> </h2>
+          <p>Exp. Date <span>12-12-2018</span></p>
+          <div class="pull-left">
+            <p>Rs. <span>999</span></p>
+          </div>
+          <div class="operate-qty pull-right">
+            <button class="btn-qty btn-sub quantity_sub">-</button>
+            <input type="number" class="quantity" >
+            <button class="btn-qty btn-add quantity_add">+</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--
+  <div ng-repeat="a in cartItems">
+   <div class="card">
+      <div class="item item-divider">
+        {{a.product}}
+        <button class="button button-icon icon ion-ios-trash-outline button-small button-clear button-assertive remove-cart-prod"></button>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="row">
+            <div class="col">Rate</div> <div class="col col-67 txt-right padding-btn-right" >{{a.price}}</div>
+        </div>
+         <div class="row">
+            <div class="col">Quantity</div> 
+            <div class="col col-67">
+                <div class="in-dr-qty">
+                   <div><button class="button button-icon icon ion-ios-plus-empty button-small button-clear button-assertive"></button></div>
+                   <div class="prod-quanti">01</div>
+                   <div><button class="button button-icon icon ion-ios-minus-empty button-small button-clear button-assertive"></button></div>
+                </div>
+            </div>
+        </div>
+        <hr />
+         <div class="row">
+            <div class="col">Total</div> <div class="col col-67 txt-right padding-btn-right">{{a.price}}</div>
+        </div>
+      </div>     
+  </div>
+  </div>
+  <div class="card">
+    <div class="item">
+        <div class="row">
+            <div class="col">Net Total</div> <div class="col col-67 txt-right padding-btn-right">15000</div>
+        </div>
+        <br />
+        <hr />
+        <button class="button button-block button-assertive">Proceed payment</button>
+    </div>
+  </div>-->
+  </ion-content>
+</ion-view>

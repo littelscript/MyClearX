@@ -1,0 +1,68 @@
+<ion-view view-title="Product">
+<ion-nav-bar class="bar-assertive myClearx-bar">
+     <ion-nav-back-button> </ion-nav-back-button> 
+     <ion-nav-buttons side="left"> <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button> </ion-nav-buttons>
+     <ion-nav-buttons side="right">        
+            
+        <button class="button button-icon button-clear ion-ios-cart"  ui-sref="app.cart" menu-close ><span class="cart-item-ind" ng-if="cartItems.length > 0"> </span></button>   
+      </ion-nav-buttons>
+
+  </ion-nav-bar>
+  <ion-content>
+
+     <div class="list card" ng-repeat ="a in productList" ng-if="$index == selectedProd - 1">
+        
+        <div class="item item-avatar">
+        <img ng-src="{{a.productImage}}">
+        <h2 >{{a.productName}}</h2>
+        <p>{{a.stockNum}} Items in stock </p>
+      </div>
+
+      <div class="item item-body">    
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+          <ion-slide >
+              <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+          </ion-slide>
+          <ion-slide>
+            <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+          </ion-slide>
+          <ion-slide>
+            <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+          </ion-slide>
+          <ion-slide>
+            <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+          </ion-slide>
+        </ion-slide-box>
+        
+        <p class="no-margin"></p>
+         <p>
+            <b>Rs. {{a.price}} Only</b> <br /> <br />
+             <b>contents: </b> <br /> <span ng-bind="a.chemicalName"></span><br /> <br /> 
+            <b>Expiry Date: </b> <br /> <span >05-01-2018</span><br /> <br /> 
+            <b>Description: </b> <br /> <span ng-bind="a.description"></span><br /> 
+           
+         </p>
+            <div class="row">    
+               <div class="col "><b>Quantity</b></div>        
+                <div class="col col-67">                    
+                    <div class="in-dr-qty">
+                    <button class="button button-icon icon ion-ios-plus-empty button-small button-outline button-assertive" ng-click="itemcountInc()"></button>
+                    <input type="number" placeholder="0" ng-model="count"/>
+                    <button class="button button-icon icon ion-ios-minus-empty button-small button-outline button-assertive" ng-click="itemcountDesc()"></button>
+                    </div>                
+                </div>
+            </div>
+            <div class="row">
+            <div class="col"><hr /></div>
+            </div>
+            <div class="row">
+            <div class="col"></div>
+             <div class="col col-67  text-right">
+                <button class="button button-assertive" ng-click="addToCart(a)">Add to Cart&nbsp;<i class="icon ion-ios-cart"></i></button>
+             </div>            
+           </div>         
+      </div>      
+    </div>
+
+  </ion-content>
+</ion-view>
