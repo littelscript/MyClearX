@@ -5,7 +5,7 @@
     app.service("httpService", ['utils', '$q','$http', function (utils,$q,$http) {
 
 
-        this.getWebServiceCall = function (url,data) {
+        this.getHttp = function (url,data) {
             var defer = $q.defer();
             data.Gcm_id=utils.getGCMId();
             utils.loaderShow();
@@ -28,13 +28,13 @@
 
     }]);
 
-    app.factory("endPointUrl", ['utils', function (utils) {
+    app.factory("url", ['utils', function (utils) {
 
           var factory={};
 
           factory.login=utils.baseUrl+'login/login.php';
           factory.signup=utils.baseUrl+'sinup/sinup.php';
-          factory.products=utils.baseUrl+'product/product.php';
+          factory.product=utils.baseUrl+'product/product.php';
 
 
           return factory;
