@@ -23,7 +23,7 @@
     .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'templates/menu.html'/*,
+        templateUrl: 'Modules/root/templates/menu.html'/*,
         controller: 'AppCtrl'*/
     })
 
@@ -31,7 +31,7 @@
       url: '/home',
       views: {
           'menuContent': {
-              templateUrl: 'templates/home.html'//,
+              templateUrl: 'Modules/root/templates/home.html'//,
              // controller: 'homeController'
           }
       }
@@ -40,7 +40,7 @@
       url: '/cart',
       views: {
           'menuContent': {
-              templateUrl: 'templates/cart.html'
+              templateUrl: 'Modules/cart/templates/cart.html'
 
           }
       }
@@ -49,7 +49,7 @@
       url: '/search',
       views: {
           'menuContent': {
-              templateUrl: 'templates/search.html'
+              templateUrl: 'Modules/search/templates/search.html'
 
           }
       }
@@ -57,7 +57,7 @@
       url: '/home/:productId',
       views: {
           'menuContent': {
-              templateUrl: 'templates/product.html',
+              templateUrl: 'Modules/product/templates/product.html',
               controller: 'ProductController'
 
           }
@@ -66,7 +66,7 @@
       url: '/profile',
       views: {
           'menuContent': {
-              templateUrl: 'templates/profile.html'
+              templateUrl: 'Modules/profile/templates/profile.html'
 
           }
       }
@@ -74,7 +74,7 @@
       url: '/productManage',
       views: {
           'menuContent': {
-              templateUrl: 'templates/productmgmt.html'
+              templateUrl: 'Modules/productManage/templates/productmgmt.html'
 
           }
       }
@@ -82,7 +82,7 @@
       url: '/addProduct',
       views: {
           'menuContent': {
-              templateUrl: 'templates/addProduct.html'
+              templateUrl: 'templates/addProduct/addProduct.html'
 
           }
       }
@@ -90,7 +90,7 @@
       url: '/login',
       views: {
           'menuContent': {
-              templateUrl: 'templates/login.html'
+              templateUrl: 'Modules/login/templates/login.html'
 
           }
       }

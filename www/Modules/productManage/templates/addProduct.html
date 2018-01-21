@@ -1,0 +1,76 @@
+<ion-view view-title="Add product">
+    <ion-nav-bar class="bar-assertive myClearx-bar">
+     <ion-nav-back-button> </ion-nav-back-button> 
+     <ion-nav-buttons side="left"> <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button> </ion-nav-buttons>
+    </ion-nav-bar>
+  <ion-content>
+    <div class="col">
+        <div class="list">
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Product category
+            </div>
+            <select >
+              <option ng-repeat="option in categorylist" ng-if="option != 'All'">{{option}}</option>
+            </select>
+          </label>
+      <label class="item item-input">
+        <span class="input-label">Product name</span>
+        <input type="text"  required>
+      </label>      
+      <label class="item item-input">
+        <span class="input-label">Chemical name</span>
+        <input type="text"  required>
+      </label>  
+      <label class="item item-input">
+        <span class="input-label">Manufacturer</span>
+        <input type="text"  required>
+      </label>
+       <label class="item item-input item-select">
+            <div class="input-label">
+             Packaging
+            </div>
+            <select >
+              <option ng-repeat="option in packSize">{{option}}</option>
+            </select>
+          </label> 
+      <label class="item item-input">
+        <span class="input-label">Price (INR.)</span>
+        <input type="number" required>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Expiry Date</span>
+        <input type="date" required>
+      </label>
+      <div class="item item-divider">
+       Product details
+      </div>
+      <label class="item item-input">
+        <textarea placeholder="Product information" rows="5"></textarea>
+      </label>
+      <div class="item item-divider">
+       Product image
+      </div>
+      <label class="item item-input uploadedImg">
+        <div class="col text-center"><img src="img/200Img.png" /></div>
+         <div class="col text-center"><img src="img/200Img.png" /></div>
+          <div class="col text-center"><img src="img/200Img.png" /></div>
+           <div class="col text-center"><img src="img/200Img.png" /></div>
+      </label>
+      <label class="item item-input no-padding">       
+        <div class="col"><button class="button icon-left ion-images button-clear button-assertive">Gallary</button></div>
+        <div class="col"><button class="button icon-left button-clear button-assertive ion-camera ">Camera</button></div>
+      </label>
+      
+      
+     
+       <button class="button button-block button-assertive" >Upload Product</button>
+      
+      
+    </div>
+    </div>
+    
+
+
+  </ion-content>
+</ion-view>

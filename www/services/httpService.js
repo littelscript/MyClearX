@@ -2,7 +2,7 @@
 
     var app = angular.module('myclearx');
 
-    app.service("webServiceCall", ['utils', '$q','$http', function (utils,$q,$http) {
+    app.service("httpService", ['utils', '$q','$http', function (utils,$q,$http) {
 
 
         this.getWebServiceCall = function (url,data) {
