@@ -10,43 +10,50 @@
             <div class="input-label">
               Product category
             </div>
-            <select >
-              <option ng-repeat="option in categorylist" ng-if="option != 'All'">{{option}}</option>
+            <select ng-model="ProductData.Product_type">
+              <option value="1">Pesticides</option>
+              <option value="2" selected>Insecticides</option>
+              <option value="3" >Seeds</option>
+              <option value="4">Fertiliser</option>
             </select>
           </label>
       <label class="item item-input">
         <span class="input-label">Product name</span>
-        <input type="text"  required>
+        <input type="text"  ng-model="ProductData.Product_name" required>
       </label>      
       <label class="item item-input">
         <span class="input-label">Chemical name</span>
-        <input type="text"  required>
-      </label>  
+        <input type="text"  ng-model="ProductData.Content" required>
+      </label> 
       <label class="item item-input">
-        <span class="input-label">Manufacturer</span>
-        <input type="text"  required>
-      </label>
-       <label class="item item-input item-select">
+        <span class="input-label">Brand name</span>
+        <input type="text"  ng-model="ProductData.Brand_name" required>
+      </label> 
+      <label class="item item-input">
+        <span class="input-label">In_stock</span>
+        <input type="text"  ng-model="ProductData.In_stock" required>
+      </label>  
+      <label class="item item-input item-select">
             <div class="input-label">
              Packaging
             </div>
-            <select >
+            <select  ng-model="ProductData.Packaging" >
               <option ng-repeat="option in packSize">{{option}}</option>
             </select>
           </label> 
       <label class="item item-input">
         <span class="input-label">Price (INR.)</span>
-        <input type="number" required>
+        <input type="number" ng-model="ProductData.Price" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Expiry Date</span>
-        <input type="date" required>
+        <input type="date" ng-model="ProductData.Expiry_date_m" required>
       </label>
       <div class="item item-divider">
        Product details
       </div>
       <label class="item item-input">
-        <textarea placeholder="Product information" rows="5"></textarea>
+        <textarea placeholder="Product information" rows="5" ng-model="ProductData.Description"></textarea>
       </label>
       <div class="item item-divider">
        Product image
@@ -64,7 +71,7 @@
       
       
      
-       <button class="button button-block button-assertive" >Upload Product</button>
+       <button class="button button-block button-assertive" ng-click="addProduct(ProductData)">Upload Product</button>
       
       
     </div>

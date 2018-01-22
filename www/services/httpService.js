@@ -35,6 +35,10 @@
           factory.login=utils.baseUrl+'login/login.php';
           factory.signup=utils.baseUrl+'sinup/sinup.php';
           factory.product=utils.baseUrl+'product/product.php';
+          factory.addProduct=utils.baseUrl+'product/addProduct.php';
+          factory.getProductById=utils.baseUrl+'product/getProductById.php';
+          factory.updateProfile=utils.baseUrl+'profile/updateProfile.php';
+
 
 
           return factory;

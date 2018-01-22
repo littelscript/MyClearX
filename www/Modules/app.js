@@ -40,7 +40,8 @@
                     url: '/cart',
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/cart/templates/cart.html'
+                            templateUrl: 'modules/cart/templates/cart.html',
+                            controller:"CartController"
 
                         }
                     }
@@ -75,7 +76,8 @@
                     url: '/productManage',
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/productManage/templates/productmgmt.html'
+                            templateUrl: 'modules/productManage/templates/productmgmt.html',
+                            
 
                         }
                     }
@@ -83,8 +85,8 @@
                     url: '/addProduct',
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/addProduct/templates/addProduct.html'
-
+                            templateUrl: 'modules/addProduct/templates/addProduct.html',
+                            controller:"AddProductController"
                         }
                     }
                 }).state('app.login', {

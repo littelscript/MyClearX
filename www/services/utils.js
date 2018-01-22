@@ -136,6 +136,11 @@
 
             return moment(between).isBetween(start, end);
         }
+        this.formatDate = function (data) {
+            var date = new Date(data);
+            var dateString=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+            return dateString;
+        }
 
 
 
