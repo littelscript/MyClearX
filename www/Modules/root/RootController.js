@@ -9,8 +9,9 @@
             $http.get("templates/data.json").then(function (response) {
                 return $scope.productList = response.data;
             });
-            httpService.getHttp(url.product,{}).then(function(response){
+            httpService.getHttp(url.product,{"Product_order":1}).then(function(response){
                 console.dir(response);
+                $scope.productList = response.data;
             },function(){
 
             });

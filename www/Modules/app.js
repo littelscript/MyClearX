@@ -49,7 +49,8 @@
                     url: '/search',
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/search/templates/search.html'
+                            templateUrl: 'modules/search/templates/search.html',
+                            controller:"SearchController"
 
                         }
                     }

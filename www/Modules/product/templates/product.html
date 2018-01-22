@@ -14,32 +14,32 @@
         
         <div class="item item-avatar">
         <img ng-src="{{a.productImage}}">
-        <h2 >{{a.productName}}</h2>
-        <p>{{a.stockNum}} Items in stock </p>
+        <h2 >{{a.Product_name}}</h2>
+        <p>{{a.In_stock}} Items in stock </p>
       </div>
 
       <div class="item item-body">    
           <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
           <ion-slide >
-              <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+              <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
           </ion-slide>
           <ion-slide>
-            <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+            <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
           </ion-slide>
           <ion-slide>
-            <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+            <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
           </ion-slide>
           <ion-slide>
-            <div class="text-center"><img  ng-src="{{a.productImage}}" width="100%"></div>
+            <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
           </ion-slide>
         </ion-slide-box>
         
         <p class="no-margin"></p>
          <p>
-            <b>Rs. {{a.price}} Only</b> <br /> <br />
-             <b>contents: </b> <br /> <span ng-bind="a.chemicalName"></span><br /> <br /> 
-            <b>Expiry Date: </b> <br /> <span >05-01-2018</span><br /> <br /> 
-            <b>Description: </b> <br /> <span ng-bind="a.description"></span><br /> 
+            <b>Rs. {{a.Price}} Only</b> <br /> <br />
+             <b>contents: </b> <br /> <span>{{a.Content}}</span><br /> <br /> 
+            <b>Expiry Date: </b> <br /> <span >{{a.Expiry_date}}</span><br /> <br /> 
+            <b>Description: </b> <br /> <span ng-bind="a.Description"></span><br /> 
            
          </p>
             <div class="row">    
