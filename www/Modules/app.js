@@ -91,7 +91,8 @@
                     url: '/login',
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/login/templates/login.html'
+                            templateUrl: 'modules/login/templates/login.html',
+                            controller:"LoginController"
 
                         }
                     }

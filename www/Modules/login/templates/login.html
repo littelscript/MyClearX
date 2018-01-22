@@ -29,7 +29,7 @@
      <button class="button button-clear button-block button-assertive" ng-click="loginChange('Register')">Create new account </button>
    </div>
   </form>   
-
+ 
   <form class="row" ng-if="loginRegister == 'Reset Password'">
      <div class="col">
          <p class="txt-center">Please enter your registered mobile number.</p>
@@ -57,7 +57,6 @@
 <form class="row" name="registerForm" ng-if="loginRegister == 'Register'" novalidate>
    <div class="col">
      <p class="txt-center">Please enter your details to register.</p>
-
      <div class="list">
       <p ng-if="errorFlag">{{errorMsg}}</p>
       <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="text-danger">Enter a valid email.</p>
@@ -110,12 +109,12 @@
     </div>
     <p class="txt-center">Please pick the best word that represents you.</p>
     <ion-list>
-      <ion-radio ng-model="login.User_type" ng-value="'1'">Manufacturer</ion-radio>
-      <ion-radio ng-model="login.User_type" ng-value="'2'">Krushi Kendra</ion-radio>
-      <ion-radio ng-model="login.User_type" ng-value="'3'">Farmer</ion-radio>
+      <ion-radio ng-model="register.User_type" ng-value="'1'">Manufacturer</ion-radio>
+      <ion-radio ng-model="register.User_type" ng-value="'2'">Krushi Kendra</ion-radio>
+      <ion-radio ng-model="register.User_type" ng-value="'3'">Farmer</ion-radio>
     </ion-list>
 
-     <button class="button button-block button-assertive" ng-disabled="registerForm.$invalid" ng-click="getRegister(register)">Register</button>
+     <button class="button button-block button-assertive" ng-click="getRegister(register)">Register</button>
         <br />
      <button class="button button-clear button-block button-assertive" ng-click="loginChange('Login')">Existing user?</button>
    </div>

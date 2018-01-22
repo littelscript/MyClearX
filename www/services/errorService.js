@@ -11,10 +11,12 @@
             "103":"Application activated successfully.",
             "104":"Application deactivated successfully.",
             "105":"Sent successfully. we will back to you soon.",
+            "400":"Invalid user details!",
             "500":"Contact service provider!",
             "501":"Please enter registered number!",
             "502":"No record found!",
             "503":"Unable to get your location.<br>Please check your gps & try again",
+            "504":"Email already exist!",
             "601":"Please select location!",
             "default":"Please try again!"
 
