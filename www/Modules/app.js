@@ -23,7 +23,7 @@
                 .state('app', {
                     url: '/app',
                     abstract: true,
-                    templateUrl: 'Modules/root/templates/menu.html'/*,
+                    templateUrl: 'modules/root/templates/menu.html'/*,
         controller: 'AppCtrl'*/
                 })
 
@@ -31,7 +31,7 @@
                     url: '/home',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/root/templates/home.html'//,
+                            templateUrl: 'modules/root/templates/home.html'//,
                             // controller: 'homeController'
                         }
                     }
@@ -40,7 +40,7 @@
                     url: '/cart',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/cart/templates/cart.html'
+                            templateUrl: 'modules/cart/templates/cart.html'
 
                         }
                     }
@@ -49,7 +49,7 @@
                     url: '/search',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/search/templates/search.html'
+                            templateUrl: 'modules/search/templates/search.html'
 
                         }
                     }
@@ -57,7 +57,7 @@
                     url: '/home/:productId',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/product/templates/product.html',
+                            templateUrl: 'modules/product/templates/product.html',
                             controller: 'ProductController'
 
                         }
@@ -66,7 +66,7 @@
                     url: '/profile',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/profile/templates/profile.html'
+                            templateUrl: 'modules/profile/templates/profile.html'
 
                         }
                     }
@@ -74,7 +74,7 @@
                     url: '/productManage',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/productManage/templates/productmgmt.html'
+                            templateUrl: 'modules/productManage/templates/productmgmt.html'
 
                         }
                     }
@@ -82,7 +82,7 @@
                     url: '/addProduct',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/addProduct/templates/addProduct.html'
+                            templateUrl: 'modules/addProduct/templates/addProduct.html'
 
                         }
                     }
@@ -90,7 +90,7 @@
                     url: '/login',
                     views: {
                         'menuContent': {
-                            templateUrl: 'Modules/login/templates/login.html'
+                            templateUrl: 'modules/login/templates/login.html'
 
                         }
                     }
