@@ -25,8 +25,8 @@
                         imageUploadService.selectPicture(type).then(function(imagePath){
 
                             $scope.imagePath.push(imagePath);
-                             var reader = new FileReader();
-    /*reader.onload = function(){
+                            /* var reader = new FileReader();
+    reader.onload = function(){
       var dataURL = reader.result;
       var output = document.getElementById('output');
       output.src = dataURL;
