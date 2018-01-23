@@ -1,5 +1,5 @@
 (function () {
-    var myclearx = angular.module('myclearx', ['ionic'])
+    var myclearx = angular.module('myclearx', ['ionic','ngCordova'])
 
         .run(function ($ionicPlatform) {
             $ionicPlatform.ready(function () {

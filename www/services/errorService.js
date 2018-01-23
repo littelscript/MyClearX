@@ -18,6 +18,7 @@
             "503":"Unable to get your location.<br>Please check your gps & try again",
             "504":"Email already exist!",
             "601":"Please select location!",
+            "602":"Image not more than 4!",
             "default":"Please try again!"
 
 

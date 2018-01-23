@@ -59,13 +59,17 @@
        Product image
       </div>
       <label class="item item-input uploadedImg">
-        <div class="col text-center"><img src="img/200Img.png" /></div>
-         <div class="col text-center"><img src="img/200Img.png" /></div>
-          <div class="col text-center"><img src="img/200Img.png" /></div>
-           <div class="col text-center"><img src="img/200Img.png" /></div>
+        <div  ng-if="!imagePath[0]" class="col text-center"><img src="img/200Img.png" /></div>
+        <div  ng-if="!imagePath[1]" class="col text-center"><img src="img/200Img.png" /></div>
+         <div  ng-if="!imagePath[2]" class="col text-center"><img src="img/200Img.png" /></div>
+          <div  ng-if="!imagePath[3]"class="col text-center"><img src="img/200Img.png" /></div>
+          <div ng-if="imagePath[0]" class="col text-center"><img ng-src="{{imagePath[0]}}" /></div>
+           <div  ng-if="imagePath[1]" class="col text-center"><img ng-src="{{imagePath[1]}}" /></div>
+           <div   ng-if="imagePath[2]"class="col text-center"><img ng-src="{{imagePath[2]}}" /></div>
+           <div   ng-if="imagePath[3]" class="col text-center"><img ng-src="{{imagePath[3]}}" /></div>
       </label>
       <label class="item item-input no-padding">       
-        <div class="col"><button class="button icon-left ion-images button-clear button-assertive">Gallary</button></div>
+        <div class="col"><button class="button icon-left ion-images button-clear button-assertive" ng-click="getFile();">Gallary</button></div>
         <div class="col"><button class="button icon-left button-clear button-assertive ion-camera ">Camera</button></div>
       </label>
       
