@@ -24,15 +24,16 @@
                     url: '/app',
                     abstract: true,
                     templateUrl: 'modules/root/templates/menu.html'/*,
-        controller: 'AppCtrl'*/
+                    controller: 'AppCtrl'*/
                 })
 
                 .state('app.home', {
                     url: '/home',
+                    cache: false,
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/root/templates/home.html'//,
-                            // controller: 'homeController'
+                            templateUrl: 'modules/root/templates/home.html',
+                            controller: 'HomeController'
                         }
                     }
                 })
@@ -68,7 +69,8 @@
                     url: '/profile',
                     views: {
                         'menuContent': {
-                            templateUrl: 'modules/profile/templates/profile.html'
+                            templateUrl: 'modules/profile/templates/profile.html',
+                            controller:'ProfileController'
 
                         }
                     }

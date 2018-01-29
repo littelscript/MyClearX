@@ -7,13 +7,13 @@
     function loginController($ionicHistory,$state,errorService,utils, $scope, $http, $ionicPopup, httpService, url) {
         $scope.register={};
         $scope.login = {}
-
-        $scope.getLogin = function () {
+       $scope.getLogin = function () {
 
             httpService.getHttp(url.login, $scope.login).then(function(response){
                   if(response.status){
 
                     utils.setLocalStorage("userDetails",response.data);
+                    $scope.$emit("loginSuccess");
                     $ionicHistory.nextViewOptions({
                         disableBack: true
                     });
@@ -34,6 +34,7 @@
                 if(response.status){
 
                     utils.setLocalStorage("userDetails",response.data);
+                    $scope.$emit("loginSuccess");
                     $ionicHistory.nextViewOptions({
                         disableBack: true
                     });

@@ -40,13 +40,13 @@
         <ion-item menu-close href="#/app/productManage">
           Product Management
         </ion-item>
-        <ion-item menu-close href="#/app/login">
+        <ion-item menu-close href="#/app/login" ng-if="!loginStatus">
           Login/Register
         </ion-item>
-        <ion-item menu-close href="#/app/profile">
+        <ion-item menu-close href="#/app/profile" ng-if="loginStatus">
           Profile
         </ion-item>
-        <ion-item menu-close >
+        <ion-item menu-close ng-if="loginStatus" ng-click="logOut();">
           Logout
         </ion-item>
       </ion-list>

@@ -2,23 +2,42 @@
     var myclearx = angular.module('myclearx')
 
     myclearx.controller('RootController', rootContoller);
-    rootContoller.$inject = ['utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url'];
-    function rootContoller(utils, $scope, $http, $ionicPopup, httpService, url) {
+    rootContoller.$inject = ['$ionicSideMenuDelegate','$ionicHistory','utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url','$state'];
+    function rootContoller($ionicSideMenuDelegate,$ionicHistory,utils, $scope, $http, $ionicPopup, httpService, url,$state) {
         $scope.categorylist = ['All', 'Pesticides', 'Insecticides', 'Fertilisers', 'Seeds'];
         $scope.packSize = ['Grams', 'Kgrams', 'tonn', 'mLiters', 'Liters']
         $scope.productList = [];
-       
-        httpService.getHttp(url.product, { "Product_order": 1 }).then(function (response) {
-            console.dir(response);
-            $scope.productList = response.data;
-        }, function () {
-
+        $scope.loginStatus=false;
+        if(utils.getLocalStorage("userDetails")){
+            $scope.loginStatus=true;     
+        }
+        $scope.$on("loginSuccess",function(){
+            $scope.loginStatus=true; 
         });
+
+        $scope.$on("productData",function(e,response){
+            $scope.productList = response.data;
+        });
+
+        
+        
+        
 
         $scope.loginRegister = "Login";
         $scope.editView = 0;
         $scope.products = [1, 2, 3, 4, 5, 6, 7, 8];
         $scope.category = 'All';
+        $scope.logOut=function(){
+            utils.destroyLocalStorage('userDetails');
+            $scope.loginStatus=false;
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $ionicSideMenuDelegate.toggleLeft();
+            $state.go('app.home');
+
+            
+        }
 
 
 

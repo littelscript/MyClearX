@@ -36,27 +36,27 @@
        Address
       </div>
        <label class="item item-input">       
-        <textarea placeholder="Address line 1"></textarea>
+        <textarea placeholder="Address line 1" ng-model="register.Address_line_1"></textarea>
       </label>
       <label class="item item-input">       
-        <textarea placeholder="Address line 1"></textarea>
+        <textarea placeholder="Address line 1" ng-model="register.Address_line_2"></textarea>
       </label>
       <label class="item item-input">
-        <span class="input-label">Landmark</span>
-        <input type="text" required>
+        <span class="input-label" >Landmark</span>
+        <input type="text" ng-model="register.Landmark" required>
       </label>
       <label class="item item-input">
-        <span class="input-label">City</span>
-        <input type="text" required>
+        <span class="input-label" >City</span>
+        <input type="text" ng-model="register.City" required>
       </label>
       <label class="item item-input">
-        <span class="input-label">PIN Code</span>
-        <input type="number" required>
+        <span class="input-label" >PIN Code</span>
+        <input type="number" ng-model="register.Pincode" required>
       </label>
 
     </div>
    
-     <button class="button button-block button-assertive" ng-click="">Save</button>
+     <button class="button button-block button-assertive" ng-click="updateProfile(register);">Save</button>
    </div>
   </ion-content>
 </ion-view>
