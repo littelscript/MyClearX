@@ -56,7 +56,7 @@
             var defer = $q.defer();
             var confirmPopup = $ionicPopup.confirm({
                 title: 'Confirm',
-                template: 'Are you sure you want to Delete?'
+                template: 'Are you sure you want to remove item?'
             });
 
             confirmPopup.then(function (res) {

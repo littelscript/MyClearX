@@ -12,7 +12,7 @@
         <div class="padding-tb">
             <div class="col" id="index_top_bar">
                 <ul class="category_block">
-                    <li ng-class="{ active: isSet(a) }" ng-repeat="a in categorylist"><a  ng-click="setStore(a)">{{a}}</a></li>                    
+                    <li ng-class="{ active: isSet(a.name) }" ng-repeat="a in categorylist"><a  ng-click="setStore(a)">{{a.name}}</a></li>                    
                 </ul>
             </div>
         </div>

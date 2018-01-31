@@ -11,6 +11,7 @@
             "103":"Application activated successfully.",
             "104":"Application deactivated successfully.",
             "105":"Sent successfully. we will back to you soon.",
+            "106":"Are sure to delete this item?",
             "400":"Invalid user details!",
             "500":"Contact service provider!",
             "501":"Please enter registered number!",

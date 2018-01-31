@@ -4,9 +4,15 @@
     myclearx.controller('RootController', rootContoller);
     rootContoller.$inject = ['$ionicSideMenuDelegate','$ionicHistory','utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url','$state'];
     function rootContoller($ionicSideMenuDelegate,$ionicHistory,utils, $scope, $http, $ionicPopup, httpService, url,$state) {
-        $scope.categorylist = ['All', 'Pesticides', 'Insecticides', 'Fertilisers', 'Seeds'];
+        $scope.categorylist = [{"name":"All","key":0},{"name":"Pesticides","key":1},{"name":"Insecticides","key":2},{"name":"Fertilisers","key":3},{"name":"Seeds","key":4}];
         $scope.packSize = ['Grams', 'Kgrams', 'tonn', 'mLiters', 'Liters']
         $scope.productList = [];
+        $scope.cartItems=[];
+        $scope.categoryId=0;
+        if(utils.getLocalStorage("cartItems")){
+
+            $scope.cartItems = utils.getLocalStorage("cartItems"); 
+        }
         $scope.loginStatus=false;
         if(utils.getLocalStorage("userDetails")){
             $scope.loginStatus=true;     
@@ -17,6 +23,10 @@
 
         $scope.$on("productData",function(e,response){
             $scope.productList = response.data;
+        });
+
+        $scope.$on("cartToLocal",function(e,cartData){
+            utils.setLocalStorage("cartItems",cartData);
         });
 
         
@@ -46,7 +56,9 @@
             return $scope.category === a;
         };
         $scope.setStore = function (a) {
-            $scope.category = a;
+            $scope.categoryId=a.key;
+            $scope.$broadcast("getProductList");
+            $scope.category = a.name;
         }
 
         $scope.productOpen = function (a) {
