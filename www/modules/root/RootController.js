@@ -49,7 +49,16 @@
             
         }
 
+        $scope.imageSel= ['0','0','0','0'] ;
+        $scope.selectImageContainer = function(a){
+             if($scope.imageSel[a] == 1){
+                $scope.imageSel[a] = 0;
+             }
+             else {
+                 $scope.imageSel[a] = 1;
+             }
 
+        }
 
 
         $scope.isSet = function (a) {

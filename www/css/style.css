@@ -431,3 +431,8 @@
     .input-label{ font-size:14px !important;}
 
 /*Product*/
+
+
+/*31 Jan 2018*/
+.select-box img{ padding:1px; background: red; border-radius: 2px;
+}
