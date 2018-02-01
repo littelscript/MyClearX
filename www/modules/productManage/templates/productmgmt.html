@@ -1,77 +1,140 @@
 <ion-view view-title="Manage products">
-    <ion-nav-bar class="bar-assertive myClearx-bar">
-     <ion-nav-back-button> </ion-nav-back-button> 
-     <ion-nav-buttons side="left"> 
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-if="editView == false"> </button> 
-        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="productListback()" ng-if="editView == true"></button>
-     </ion-nav-buttons>
-    </ion-nav-bar>
+  <ion-nav-bar class="bar-assertive myClearx-bar">
+    <ion-nav-back-button> </ion-nav-back-button>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-if="editView == false"> </button>
+      <button class="button button-icon button-clear ion-android-arrow-back" ng-click="editViewFun(false)" ng-if="editView == true"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-content>
-   <div class="col" ng-if="editView == false " >
-    <div class="list"  >
-        <a class="item item-avatar" ng-repeat="product in productList"  >
-          <img ng-src="{{product.productImage}}">
-          <h2>{{product.productName}}</h2>
-          <p>{{product.brandName}}</p>
+    <div class="col" ng-if="editView == false ">
+
+      <div class="list">
+        <a class="item item-avatar" ng-repeat="product in productListData track by $index">
+          <img ng-src="{{product.Product_image}}">
+          <h2>{{product.Product_name}}</h2>
+          <p>{{product.Brand_name}}</p>
 
           <div class="edit-delete-box row">
             <div class="col padding-0">
-                <button class="button button-clear button-dark" ><i class="icon ion-edit"></i></button>
+              <button class="button button-clear button-dark" ng-click="editViewFun(product);">
+                <i class="icon ion-edit"></i>
+              </button>
             </div>
             <div class="col padding-0">
-                <button class="button button-clear button-assertive" ng-click="showPopup()"><i class=" icon ion-trash-a"></i></button>
+              <button class="button button-clear button-assertive" ng-click="showPopup(product,$index)">
+                <i class=" icon ion-trash-a"></i>
+              </button>
             </div>
           </div>
         </a>
+      </div>
     </div>
-   </div>
 
-    <div class="col" ng-if="editView == true " >
-         <div>
+    <div class="col" ng-if="editView == true ">
+      <div>
         <div class="list">
-        <label class="item item-input item-select">
+          <label class="item item-input item-select">
             <div class="input-label">
               Product category
             </div>
-            <select>
-              <option>Pesticides</option>
-              <option selected>Seeds</option>
-              <option>Fertiliser</option>
+            <select ng-model="ProductData.Product_type">
+              <option value="1">Pesticides</option>
+              <option value="2" selected>Insecticides</option>
+              <option value="3">Seeds</option>
+              <option value="4">Fertiliser</option>
             </select>
           </label>
-      <label class="item item-input">
-        <span class="input-label">Product name</span>
-        <input type="text"  required>
-      </label>        
-      <label class="item item-input">
-        <span class="input-label">Price (INR.)</span>
-        <input type="number" required>
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Expiry Date</span>
-        <input type="date" required>
-      </label>
-      <div class="item item-divider">
-       Product details
+          <label class="item item-input">
+            <span class="input-label">Product name</span>
+            <input type="text" ng-model="ProductData.Product_name" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Chemical name</span>
+            <input type="text" ng-model="ProductData.Content" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Brand name</span>
+            <input type="text" ng-model="ProductData.Brand_name" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Stock QTY.</span>
+            <input type="text" ng-model="ProductData.In_stock" required>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Packaging
+            </div>
+            <select ng-model="ProductData.Packaging">
+              <option ng-repeat="option in packSize">{{option}}</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Price (INR.)</span>
+            <input type="number" ng-model="ProductData.Price" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Expiry Date</span>
+            <input type="date" ng-model="ProductData.Expiry_date_m" required>
+          </label>
+          <div class="item item-divider">
+            Product details
+          </div>
+          <label class="item item-input">
+            <textarea placeholder="Product information" rows="5" ng-model="ProductData.Description"></textarea>
+          </label>
+          <div class="item item-divider">
+            Product image
+          </div>
+          <div class="item item-input uploadedImg">
+            <div ng-if="!imagePath[0]" class="col text-center" ng-class="{'select-box' : (imageSel[0] != 0)}" ng-click="selectImageContainer(0)">
+              <img src="img/200Img.png" />
+            </div>
+            <div ng-if="!imagePath[1]" class="col text-center" ng-class="{'select-box' : (imageSel[1] != 0)}" ng-click="selectImageContainer(1)">
+              <img src="img/200Img.png" />
+            </div>
+            <div ng-if="!imagePath[2]" class="col text-center" ng-class="{'select-box' : (imageSel[2] != 0)}" ng-click="selectImageContainer(2)">
+              <img src="img/200Img.png" />
+            </div>
+            <div ng-if="!imagePath[3]" class="col text-center" ng-class="{'select-box' : (imageSel[3] != 0)}" ng-click="selectImageContainer(3)">
+              <img src="img/200Img.png" />
+            </div>
+            <div ng-if="imagePath[0]" class="col text-center">
+              <img ng-src="{{imagePath[0]}}" />
+            </div>
+            <div ng-if="imagePath[1]" class="col text-center">
+              <img ng-src="{{imagePath[1]}}" />
+            </div>
+            <div ng-if="imagePath[2]" class="col text-center">
+              <img ng-src="{{imagePath[2]}}" />
+            </div>
+            <div ng-if="imagePath[3]" class="col text-center">
+              <img ng-src="{{imagePath[3]}}" />
+            </div>
+
+
+          </div>
+          <div class="item item-input" style="padding:0">
+            <button class="button button-block button-assertive button-clear" ng-if="(imageSel[0] || imageSel[1]|| imageSel[2]||imageSel[3]) == 1"
+              ng-click="">Delete Image</button>
+          </div>
+
+          <label class="item item-input no-padding">
+            <div class="col">
+              <button class="button icon-left ion-images button-clear button-assertive" ng-click="getFile();">Gallary</button>
+            </div>
+            <div class="col">
+              <button class="button icon-left button-clear button-assertive ion-camera ">Camera</button>
+            </div>
+          </label>
+
+
+
+          <button class="button button-block button-assertive" ng-click="updateProduct(ProductData)">Upload Product</button>
+
+
+        </div>
       </div>
-      <label class="item item-input">
-        <textarea placeholder="Product information"></textarea>
-      </label>
-      <div class="item item-divider">
-       Product image
-      </div>
-      <label class="item item-input txt-center">
-        <img src="img/Img_80x80.jpg" />
-          <button class="button button-clear button-block button-assertive" >Add product image</button>
-      
-      </label>
-      
-     
-       <button class="button button-block button-assertive" >Update Product</button>
-      
-      
-    </div>
-    </div>
     </div>
   </ion-content>
 </ion-view>

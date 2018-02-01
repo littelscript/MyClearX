@@ -79,7 +79,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/productManage/templates/productmgmt.html',
-                            
+                            controller :"ProductManageController"
 
                         }
                     }

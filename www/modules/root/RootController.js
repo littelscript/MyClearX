@@ -4,7 +4,7 @@
     myclearx.controller('RootController', rootContoller);
     rootContoller.$inject = ['$ionicSideMenuDelegate', '$ionicHistory', 'utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url', '$state'];
     function rootContoller($ionicSideMenuDelegate, $ionicHistory, utils, $scope, $http, $ionicPopup, httpService, url, $state) {
-        $scope.categorylist = [{ "name": "All", "key": 0 }, { "name": "Pesticides", "key": 1 }, { "name": "Insecticides", "key": 2 }, { "name": "Fertilisers", "key": 3 }, { "name": "Seeds", "key": 4 }];
+        $scope.categorylist = [{ "name": "All", "key": 0 }, { "name": "Pesticides", "key": 1 }, { "name": "Insecticides", "key": 2 }, { "name": "Fertilisers", "key": 4 }, { "name": "Seeds", "key": 3 }];
         $scope.packSize = ['Grams', 'Kgrams', 'tonn', 'mLiters', 'Liters']
         $scope.productList = [];
         $scope.cartItems = [];
@@ -84,39 +84,7 @@
         }
 
 
-        // Pop up
-        $scope.showPopup = function () {
-            $scope.data = {};
-
-            // An elaborate, custom popup
-            var myPopup = $ionicPopup.show({
-                // template: '<input type="password" ng-model="data.wifi">',
-                title: 'Confirm an action',
-                subTitle: 'Do you really want to delete?',
-                scope: $scope,
-                buttons: [
-                    { text: 'Cancel' },
-                    {
-                        text: '<b>Delete</b>',
-                        type: 'button-assertive',
-                        onTap: function (e) {
-                            if (!$scope.data.wifi) {
-                                //don't allow the user to close unless he enters wifi password
-                                e.preventDefault();
-                            } else {
-                                return $scope.data.wifi;
-                            }
-                        }
-                    }
-                ]
-            });
-
-            myPopup.then(function (res) {
-                console.log('Tapped!', res);
-            });
-
-
-        };
+        
 
 
         // Pop up

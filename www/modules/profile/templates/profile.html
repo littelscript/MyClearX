@@ -5,6 +5,7 @@
   </ion-nav-bar>
   <ion-content>
     <div class="col profilepage">
+        <form name="my">
       <div class="list">
         <p ng-if="errorFlag">{{errorMsg}}</p>
         <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="text-danger">Enter a valid email.</p>
@@ -57,7 +58,8 @@
 
       </div>
 
-      <button class="button button-block button-assertive" ng-click="updateProfile(register);">Save</button>
+      <button class="button button-block button-assertive" ng-click="updateProfile(register);" ng-disabled="!my.$dirty">Save</button>
+        </form>
     </div>
   </ion-content>
 </ion-view>

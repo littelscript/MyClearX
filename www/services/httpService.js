@@ -37,7 +37,9 @@
           factory.product=utils.baseUrl+'product/product.php';
           factory.addProduct=utils.baseUrl+'product/addProduct.php';
           factory.getProductById=utils.baseUrl+'product/getProductById.php';
+          factory.deleteProduct=utils.baseUrl+'product/deleteProduct.php';
           factory.updateProfile=utils.baseUrl+'profile/updateProfile.php';
+          factory.updateProduct=utils.baseUrl+'product/updateProduct.php';
 
 
 
