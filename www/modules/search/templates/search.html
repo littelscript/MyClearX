@@ -21,19 +21,16 @@
       </a>
     </div>
 
+    <!--Document upload Below-->
     <div class="list col">
-        <label class="button button-assertive button-block" for="file-input">
+        <label class="button button-assertive button-block  button-outline" for="file-input">
           Choose Licence <input type="file" id="file-input" style="position:absolute; top:-1000%;" onchange="angular.element(this).scope().uploadFile(this.files)">
         </label>
-        <br/><br/>
-        <label class="button button-clear button-assertive">
+        <label class="button button-clear button-assertive button-full">
          <span ng-if="!filenameSel">No file chosen</span><span ng-if="filenameSel">{{filenameSel}}</span>
         </label>
-                  
-        
-     
-  
-    </div>
+         <button class="button button-assertive button-block">  Upload Document </button>
+    </div><!--./ endDocument upload-->
   
   
 

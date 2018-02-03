@@ -35,7 +35,8 @@
         $scope.uploadFile = function (files) {
             var fileName = files[0].name;
             $scope.filenameSel = fileName;
-            return  $scope.filenameSel;
+            console.log($scope.filenameSel);
+            
         };
 
 
