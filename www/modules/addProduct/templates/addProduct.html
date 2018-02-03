@@ -5,8 +5,8 @@
     </ion-nav-bar>
   <ion-content>
     <div class="col">
-        <div class="list">
-        <label class="item item-input item-select">
+          <div class="list">
+            <label class="item item-input item-select">
             <div class="input-label">
               Product category
             </div>
@@ -17,23 +17,23 @@
               <option value="4">Fertiliser</option>
             </select>
           </label>
-      <label class="item item-input">
-        <span class="input-label">Product name</span>
-        <input type="text"  ng-model="ProductData.Product_name" required>
-      </label>      
-      <label class="item item-input">
-        <span class="input-label">Chemical name</span>
-        <input type="text"  ng-model="ProductData.Content" required>
-      </label> 
-      <label class="item item-input">
-        <span class="input-label">Brand name</span>
-        <input type="text"  ng-model="ProductData.Brand_name" required>
-      </label> 
-      <label class="item item-input">
-        <span class="input-label">Stock QTY.</span>
-        <input type="text"  ng-model="ProductData.In_stock" required>
-      </label>  
-      <label class="item item-input item-select">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Product name</span>
+              <input type="text" placeholder="Product title" ng-model="ProductData.Product_name" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Chemical name</span>
+              <input type="text" placeholder="Chemical composition" ng-model="ProductData.Content" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Brand name</span>
+              <input type="text" placeholder="Manufacturer company"  ng-model="ProductData.Brand_name" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Stock QTY.</span>
+              <input type="text" placeholder="In stock quantity"  ng-model="ProductData.In_stock" required>
+            </label>
+            <label class="item item-input item-select">
             <div class="input-label">
              Packaging
             </div>
@@ -41,24 +41,22 @@
               <option ng-repeat="option in packSize">{{option}}</option>
             </select>
           </label> 
-      <label class="item item-input">
-        <span class="input-label">Price (INR.)</span>
-        <input type="number" ng-model="ProductData.Price" required>
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Expiry Date</span>
-        <input type="date" ng-model="ProductData.Expiry_date_m" required>
-      </label>
-      <div class="item item-divider">
-       Product details
-      </div>
-      <label class="item item-input">
-        <textarea placeholder="Product information" rows="5" ng-model="ProductData.Description"></textarea>
-      </label>
-      <div class="item item-divider">
-       Product image
-      </div>
-      <div class="item item-input uploadedImg">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Price (INR.)</span>
+              <input type="text" placeholder="In Rupees" ng-model="ProductData.Price" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Expiry Date</span>
+              <input type="date" ng-model="ProductData.Expiry_date_m" required>
+            </label>
+            <div class="item item-divider">
+            Product details
+            </div>
+            <label class="item item-input">
+              <textarea placeholder="Product information" rows="5" ng-model="ProductData.Description"></textarea>
+            </label>
+
+            <div class="item item-input uploadedImg">
         <div  ng-if="!imagePath[0]" class="col text-center" ng-class="{'select-box' : (imageSel[0] != 0)}" ng-click="selectImageContainer(0)">
             <img src="img/200Img.png"/>
         </div>
@@ -77,12 +75,17 @@
       <div class="item item-input" style="padding:0">
          <button class="button button-block button-assertive button-clear" ng-if="(imageSel[0] || imageSel[1]|| imageSel[2]||imageSel[3]) == 1" ng-click="">Delete Image</button>
       </div>
-     
-      <label class="item item-input no-padding">       
-        <div class="col"><button class="button icon-left ion-images button-clear button-assertive" ng-click="getFile();">Gallary</button></div>
-        <div class="col"><button class="button icon-left button-clear button-assertive ion-camera ">Camera</button></div>
-      </label>
+       <div class="item item-input" style="padding:0">
+        <button class="button button-block button-assertive button-clear" ng-click="getFile();">
+         <i class="icon ion-images"></i> &nbsp;Select Image
+        </button>
+       </div>
+          </div>
+
+
+
       
+       
       
      
        <button class="button button-block button-assertive" ng-click="addProduct(ProductData)">Upload Product</button>

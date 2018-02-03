@@ -20,6 +20,20 @@
         Product Name
       </a>
     </div>
+
+    <div class="list col">
+        <label class="button button-assertive button-block" for="file-input">
+          Choose Licence <input type="file" id="file-input" style="position:absolute; top:-1000%;" onchange="angular.element(this).scope().uploadFile(this.files)">
+        </label>
+        <br/><br/>
+        <label class="button button-clear button-assertive">
+         <span ng-if="!filenameSel">No file chosen</span><span ng-if="filenameSel">{{filenameSel}}</span>
+        </label>
+                  
+        
+     
+  
+    </div>
   
   
 

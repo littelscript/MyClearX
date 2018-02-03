@@ -30,6 +30,13 @@
         });
 
 
+        $scope.filenameSel = false;
+
+        $scope.uploadFile = function (files) {
+            var fileName = files[0].name;
+            $scope.filenameSel = fileName;
+            return  $scope.filenameSel;
+        };
 
 
 
@@ -84,7 +91,7 @@
         }
 
 
-        
+
 
 
         // Pop up
