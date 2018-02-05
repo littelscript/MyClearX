@@ -5,9 +5,14 @@
     productManageController.$inject = ['$ionicScrollDelegate','errorService','$ionicSideMenuDelegate', '$ionicHistory', 'utils', '$scope', '$ionicPopup', 'httpService', 'url', '$state'];
     function productManageController($ionicScrollDelegate,errorService,$ionicSideMenuDelegate, $ionicHistory, utils, $scope, $ionicPopup, httpService, url, $state) {
         $scope.productListData=[];
+        var userDetails=null;
+        if(utils.getLocalStorage("userDetails")){
+            userDetails = utils.getLocalStorage("userDetails");
+            
+        }
         $scope.getProductById = function () {
 
-            httpService.getHttp(url.getProductById, { 'User_id': 1 })
+            httpService.getHttp(url.getProductById, { 'User_id': userDetails.Tab_id })
                 .then(function (data) {
                     $scope.productListData = data.data;
                 }, function () {
@@ -93,6 +98,17 @@
 
 
         };
+
+        $scope.imageSel = ['0', '0', '0', '0'];
+        $scope.selectImageContainer = function (a) {
+            if ($scope.imageSel[a] == 1) {
+                $scope.imageSel[a] = 0;
+            }
+            else {
+                $scope.imageSel[a] = 1;
+            }
+
+        }
 
         $scope.getProductById();
     }

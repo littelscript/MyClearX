@@ -2,10 +2,11 @@
 
   var app = angular.module('myclearx');
 
-  app.factory("imageUploadService", ['$cordovaCamera', 'utils', '$cordovaVibration', '$q', '$cordovaActionSheet',
-    function ($cordovaCamera, utils, $cordovaVibration, $q, $cordovaActionSheet) {
+  app.factory("imageUploadService", ['$cordovaFile','$cordovaDevice','$cordovaCamera', 'utils', '$cordovaVibration', '$q', '$cordovaActionSheet',
+    function ($cordovaFile,$cordovaDevice,$cordovaCamera, utils, $cordovaVibration, $q, $cordovaActionSheet) {
       //$cordovaVibration.vibrate(100);
       var factory = {};
+      factory.sourceType=null;
 
       //factory.cartItems=[];
 
@@ -31,8 +32,10 @@
 
       factory.selectPicture = function (sourceType) {
         var defer = $q.defer();
+        factory.sourceType=sourceType;
         var options = {
           quality: 50,
+          allowEdit: true,
           destinationType: Camera.DestinationType.FILE_URI,
           sourceType: sourceType,
           targetWidth: 200,
@@ -75,6 +78,50 @@
           utils.loaderHide();
           $scope.showAlert('Error', 'Error in image uploading.');
         });
+      }
+
+      factory.fileUploadSetUp = function (imagePath) {
+        var defer = $q.defer();
+        var d = new Date(),
+          n = d.getTime(),
+         newFileName = n + ".jpg";
+        if ($cordovaDevice.getPlatform() == 'Android' && factory.sourceType === Camera.PictureSourceType.PHOTOLIBRARY) {
+          window.FilePath.resolveNativePath(imagePath, function (entry) {
+            window.resolveLocalFileSystemURL(entry, success, fail);
+            function fail(e) {
+              console.error('Error: ', e);
+            }
+
+            function success(fileEntry) {
+              var namePath = fileEntry.nativeURL.substr(0, fileEntry.nativeURL.lastIndexOf('/') + 1);
+              // Only copy because of access rights
+              $cordovaFile.copyFile(namePath, fileEntry.name, cordova.file.dataDirectory, newFileName).then(function (success) {
+               // $scope.image = cordova.file.dataDirectory + newFileName;;
+                //$scope.imageName = cordova.file.dataDirectory + newFileName;
+                defer.resolve(cordova.file.dataDirectory + newFileName);
+              }, function (error) {
+                defer.reject();
+              });
+            };
+          }
+          );
+        } else {
+          var namePath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+          // Move the file to permanent storage
+          $cordovaFile.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(function (success) {
+            //$scope.image = cordova.file.externalCacheDirectory + '' + currentName;
+           // $scope.imageName = cordova.file.externalCacheDirectory + '' + currentName;
+            defer.resolve(cordova.file.externalCacheDirectory + '' + currentName);
+            
+          }, function (error) {
+            //$scope.showAlert('Error', error.exception);
+            defer.reject();
+          });
+        }
+
+        
+        return defer.promise;
+
       }
 
 

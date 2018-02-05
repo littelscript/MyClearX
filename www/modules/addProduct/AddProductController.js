@@ -6,8 +6,13 @@
     function addProductController(imageUploadService,$ionicHistory,$state,errorService,utils, $scope, $ionicPopup, httpService, url) {
       $scope.ProductData={};
       $scope.imagePath=[];
+      var userDetails=null;
+        if(utils.getLocalStorage("userDetails")){
+            userDetails = utils.getLocalStorage("userDetails");
+            
+        }
         $scope.addProduct=function(data){
-            data.User_id=1;
+            data.User_id=userDetails.Tab_id;
             data.Expiry_date=utils.formatDate(data.Expiry_date_m);
             console.dir(data);
             httpService.getHttp(url.addProduct,data)
@@ -23,15 +28,10 @@
                     
                     if(type!=null){
                         imageUploadService.selectPicture(type).then(function(imagePath){
-
-                            $scope.imagePath.push(imagePath);
-                            /* var reader = new FileReader();
-    reader.onload = function(){
-      var dataURL = reader.result;
-      var output = document.getElementById('output');
-      output.src = dataURL;
-    };
-    reader.readAsDataURL(input.files[0]);*/
+                            imageUploadService.fileUploadSetUp(imagePath).then(function(imagePath){
+                                $scope.imagePath.push(imagePath);
+                            },function(){});
+                            
 
                         });
                     }
@@ -43,7 +43,34 @@
             
         }
 
+        $scope.imageSelect = ['0', '0', '0', '0'];
+        $scope.imageSelectIndex=[];
+        $scope.selectImageContainer = function (a) {
+            if ($scope.imageSelect[a] == 1) {
+                $scope.imageSelect[a] = 0;
+                $scope.imageSelectIndex.splice(a,1);   
+            }
+            else {
+                $scope.imageSelect[a] = 1;
+                if($scope.imageSelectIndex.indexOf(a)==-1){
+                    $scope.imageSelectIndex.push(a);
+                }
+            }
+            
+
+        }
+        $scope.removeImage=function(){
+            for(var i=0;i<$scope.imageSelectIndex.length;i++){
+                $scope.imagePath.splice($scope.imageSelectIndex[i],1);       
+                $scope.imageSelect[$scope.imageSelectIndex[i]] = 0;
+            }
+            
+                  
+        }
+
     }
+
+   
 
 })();
 

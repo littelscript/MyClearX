@@ -2,8 +2,8 @@
     var myclearx = angular.module('myclearx')
 
     myclearx.controller('RootController', rootContoller);
-    rootContoller.$inject = ['$ionicSideMenuDelegate', '$ionicHistory', 'utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url', '$state'];
-    function rootContoller($ionicSideMenuDelegate, $ionicHistory, utils, $scope, $http, $ionicPopup, httpService, url, $state) {
+    rootContoller.$inject = ['$ionicScrollDelegate','$ionicSideMenuDelegate', '$ionicHistory', 'utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url', '$state'];
+    function rootContoller($ionicScrollDelegate,$ionicSideMenuDelegate, $ionicHistory, utils, $scope, $http, $ionicPopup, httpService, url, $state) {
         $scope.categorylist = [{ "name": "All", "key": 0 }, { "name": "Pesticides", "key": 1 }, { "name": "Insecticides", "key": 2 }, { "name": "Fertilisers", "key": 4 }, { "name": "Seeds", "key": 3 }];
         $scope.packSize = ['Grams', 'Kgrams', 'tonn', 'mLiters', 'Liters']
         $scope.productList = [];
@@ -14,11 +14,17 @@
             $scope.cartItems = utils.getLocalStorage("cartItems");
         }
         $scope.loginStatus = false;
+        $scope.User_type = 1;
+        var userDetails = null;
         if (utils.getLocalStorage("userDetails")) {
             $scope.loginStatus = true;
+            userDetails=utils.getLocalStorage("userDetails");
+            $scope.User_type=userDetails.User_type;
         }
         $scope.$on("loginSuccess", function () {
             $scope.loginStatus = true;
+            userDetails=utils.getLocalStorage("userDetails");
+            $scope.User_type=userDetails.User_type;
         });
 
         $scope.$on("productData", function (e, response) {
@@ -51,22 +57,14 @@
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
+            $scope.User_type=1;
             $ionicSideMenuDelegate.toggleLeft();
             $state.go('app.home');
 
 
         }
 
-        $scope.imageSel = ['0', '0', '0', '0'];
-        $scope.selectImageContainer = function (a) {
-            if ($scope.imageSel[a] == 1) {
-                $scope.imageSel[a] = 0;
-            }
-            else {
-                $scope.imageSel[a] = 1;
-            }
-
-        }
+        
 
 
         $scope.isSet = function (a) {
@@ -88,6 +86,7 @@
 
         $scope.loginChange = function (a) {
             $scope.loginRegister = a;
+            $ionicScrollDelegate.resize();
 
         }
 

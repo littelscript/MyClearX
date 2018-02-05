@@ -34,10 +34,10 @@
         <ion-item menu-close href="#/app/cart">
           Cart
         </ion-item>
-        <ion-item menu-close href="#/app/addProduct">
+        <ion-item menu-close href="#/app/addProduct" ng-if="User_type!=1">
           Add Product
         </ion-item>
-        <ion-item menu-close href="#/app/productManage">
+        <ion-item menu-close href="#/app/productManage" ng-if="User_type!=1">
           Product Management
         </ion-item>
         <ion-item menu-close href="#/app/login" ng-if="!loginStatus">
