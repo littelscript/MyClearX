@@ -13,14 +13,17 @@
         }
         $scope.addProduct=function(data){
             data.User_id=userDetails.Tab_id;
+            
             data.Expiry_date=utils.formatDate(data.Expiry_date_m);
             console.dir(data);
+            imageUploadService.uploadImageFile($scope.imagePath,data);
+            /*
             httpService.getHttp(url.addProduct,data)
             .then(function(data){
                 console.dir(data);
             },function(){
 
-            });
+            });*/
         }
         $scope.getFile=function(){
             if($scope.imagePath.length<4){
