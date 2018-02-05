@@ -3,8 +3,10 @@
 
     myclearx.controller('HomeController', homeController);
 
-    homeController.$inject = ['utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url'];
-    function homeController(utils, $scope, $http, $ionicPopup, httpService, url) {
+    homeController.$inject = ['$ionicScrollDelegate','$ionicNavBarDelegate','$ionicPlatform','utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url'];
+    function homeController($ionicScrollDelegate,$ionicNavBarDelegate,$ionicPlatform,utils, $scope, $http, $ionicPopup, httpService, url) {
+        //$ionicPlatform.ready(function(){});
+        //$ionicNavBarDelegate.showBackButton(false);
 
         $scope.getProductList = function () {
 
@@ -15,6 +17,15 @@
             }, function () {
 
             });
+        }
+
+        $scope.loadMoreData=function(){
+
+            console.dir("data adadadadadadad");
+
+            $ionicScrollDelegate.resize();
+            //$scope.$broadcast('scroll.infiniteScrollComplete');
+            
         }
 
 

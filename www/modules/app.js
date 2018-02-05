@@ -1,7 +1,7 @@
 (function () {
-    var myclearx = angular.module('myclearx', ['ionic','ngCordova'])
+    var myclearx = angular.module('myclearx', ['ionic', 'ngCordova'])
 
-        .run(function ($ionicPlatform) {
+        .run(function ($ionicPlatform, $state,$cordovaToast) {
             $ionicPlatform.ready(function () {
                 if (window.cordova && window.cordova.plugins.Keyboard) {
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -13,9 +13,39 @@
                     StatusBar.styleDefault();
                 }
             });
+            var exitStatus = false
+            $ionicPlatform.registerBackButtonAction(function (e) {
+                if ($state.is('app.home')) {
+                    if (exitStatus) { // here to check whether the home page, if yes, exit the application
+
+                        navigator.app.exitApp();
+
+                    } else {
+                        $cordovaToast
+                        .showShortCenter('Press back button again to exit.')
+                        .then(function(success) {
+                          // success
+                        }, function (error) {
+                          // error
+                        });
+                        setTimeout(function () {
+                            exitStatus = false;
+                        }, 2000);
+                    }
+                    if (!exitStatus) {
+                        exitStatus = true;
+                    }
+                }else{
+                    //$state.go('app.home');
+                }
+                e.preventDefault();
+                return false;
+            }, 101);
 
 
         })
+
+
 
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
@@ -42,7 +72,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/cart/templates/cart.html',
-                            controller:"CartController"
+                            controller: "CartController"
 
                         }
                     }
@@ -52,7 +82,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/search/templates/search.html',
-                            controller:"SearchController"
+                            controller: "SearchController"
 
                         }
                     }
@@ -70,7 +100,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/profile/templates/profile.html',
-                            controller:'ProfileController'
+                            controller: 'ProfileController'
 
                         }
                     }
@@ -79,7 +109,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/productManage/templates/productmgmt.html',
-                            controller :"ProductManageController"
+                            controller: "ProductManageController"
 
                         }
                     }
@@ -88,7 +118,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/addProduct/templates/addProduct.html',
-                            controller:"AddProductController"
+                            controller: "AddProductController"
                         }
                     }
                 }).state('app.login', {
@@ -96,7 +126,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/login/templates/login.html',
-                            controller:"LoginController"
+                            controller: "LoginController"
 
                         }
                     }
