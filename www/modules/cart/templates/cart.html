@@ -10,7 +10,7 @@
         <div class="col cart-list">
             <div class="list" ng-repeat="cart in cartItems track by $index">
                 <div class="item item-thumbnail-left">
-                    <img src="img/200Img.png">
+                    <img ng-src="http://myclearx.com/myclearx/uploads/{{cart.image[0].Product_image}}">
                     <h2>
                         <span class="pull-left">{{cart.Product_name}}</span>
                         <span class="pull-right">

@@ -11,7 +11,7 @@
 
       <div class="list">
         <a class="item item-avatar" ng-repeat="product in productListData track by $index">
-          <img ng-src="{{product.Product_image}}">
+          <img ng-src="http://myclearx.com/myclearx/uploads/{{product.image[0].Product_image}}">
           <h2>{{product.Product_name}}</h2>
           <p>{{product.Brand_name}}</p>
 
@@ -115,18 +115,13 @@
 
           </div>
           <div class="item item-input" style="padding:0">
-            <button class="button button-block button-assertive button-clear" ng-if="(imageSel[0] || imageSel[1]|| imageSel[2]||imageSel[3]) == 1"
-              ng-click="">Delete Image</button>
+            <button class="button button-block button-assertive button-clear" ng-if="(imageSelect[0] || imageSelect[1]|| imageSelect[2]||imageSelect[3]) == 1" ng-click="removeImage();">Delete Image</button>
+         </div>
+          <div class="item item-input" style="padding:0">
+           <button class="button button-block button-assertive button-clear" ng-click="getFile();">
+            <i class="icon ion-images"></i> &nbsp;Select Image
+           </button>
           </div>
-
-          <label class="item item-input no-padding">
-            <div class="col">
-              <button class="button icon-left ion-images button-clear button-assertive" ng-click="getFile();">Gallary</button>
-            </div>
-            <div class="col">
-              <button class="button icon-left button-clear button-assertive ion-camera ">Camera</button>
-            </div>
-          </label>
 
 
 

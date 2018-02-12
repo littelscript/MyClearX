@@ -11,6 +11,14 @@
             userDetails = utils.getLocalStorage("userDetails");
             
         }
+        $scope.addProductFormModel={};
+        $scope.setFormScope=function(data){
+            $scope.addProductFormModel=data;
+        }
+        $scope.$watch('addProductFormModel',function(){
+
+            console.dir($scope.ProductData);
+        });
         $scope.addProduct=function(data){
             data.User_id=userDetails.Tab_id;
             

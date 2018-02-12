@@ -13,25 +13,17 @@
      <div class="list card" ng-repeat ="a in productList" ng-if="$index == selectedProd - 1">
         
         <div class="item item-avatar">
-        <img ng-src="{{a.Product_image}}">
+        <img ng-src="http://myclearx.com/myclearx/uploads/{{a.image[0].Product_image}}">
         <h2 >{{a.Product_name}}</h2>
         <p>{{a.In_stock}} Items in stock </p>
       </div>
 
       <div class="item item-body">    
           <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
-          <ion-slide >
-              <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
+          <ion-slide ng-repeat="b in a.image">
+              <div class="text-center"><img  ng-src="http://myclearx.com/myclearx/uploads/{{b.Product_image}}" width="100%"></div>
           </ion-slide>
-          <ion-slide>
-            <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
-          </ion-slide>
-          <ion-slide>
-            <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
-          </ion-slide>
-          <ion-slide>
-            <div class="text-center"><img  ng-src="{{a.Product_image}}" width="100%"></div>
-          </ion-slide>
+          
         </ion-slide-box>
         
         <p class="no-margin"></p>

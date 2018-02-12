@@ -15,6 +15,7 @@
             httpService.getHttp(url.getProductById, { 'User_id': userDetails.Tab_id })
                 .then(function (data) {
                     $scope.productListData = data.data;
+                    
                 }, function () {
 
                 });
@@ -27,6 +28,12 @@
                 data.Price=parseInt(data.Price);
                 data.Expiry_date_m=new Date(data.Expiry_date);
                 $scope.ProductData=data;
+                var image=[];
+                for(var i=0;i<$scope.ProductData.image.length;i++){
+
+                    image.push("http://myclearx.com/myclearx/uploads/"+$scope.ProductData.image[i].Product_image);
+                }
+                $scope.imagePath = image;
             }
             $ionicScrollDelegate.resize();
             $scope.editView=!$scope.editView;

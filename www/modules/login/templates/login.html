@@ -62,59 +62,59 @@
       <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="text-danger">Enter a valid email.</p>
       <label class="item item-input">
         <span class="input-label">First Name</span>
-        <input type="text" ng-model="register.First_name" required>
+        <input type="text" name="First_name" ng-model="register.First_name" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Last Name</span>
-        <input type="text" ng-model="register.Last_name" required>
+        <input type="text" name="Last_name" ng-model="register.Last_name" required>
       </label>
       <label class="item item-input">
         <span class="input-label">E-mail</span>
-        <input type="email" name="email" ng-model="register.Email" required>
+        <input type="email" name="Email" ng-model="register.Email" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Mobile No.</span>
-        <input type="number" ng-model="register.Mobile_no" required>
+        <input type="number" name="Mobile_no" ng-model="register.Mobile_no" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Password</span>
-        <input type="password" ng-model="register.Password" required>
+        <input type="password" name="Password" ng-model="register.Password" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Confirm Password</span>
-        <input type="password" ng-model="register.C_password" required>
+        <input type="password" name="C_password" ng-model="register.C_password" required>
       </label>
       <div class="item item-divider">
        Address
       </div>
        <label class="item item-input">       
-        <textarea placeholder="Address line 1" ng-model="register.Address_line_1"></textarea>
+        <textarea name="Address_line_1" placeholder="Address line 1" ng-model="register.Address_line_1" required></textarea>
       </label>
       <label class="item item-input">       
-        <textarea placeholder="Address line 1" ng-model="register.Address_line_2"></textarea>
+        <textarea name="Address_line_2" placeholder="Address line 1" ng-model="register.Address_line_2"></textarea>
       </label>
       <label class="item item-input">
         <span class="input-label">Landmark</span>
-        <input type="text" ng-model="register.Landmark" required>
+        <input type="text" name="Landmark" ng-model="register.Landmark" required>
       </label>
       <label class="item item-input">
         <span class="input-label">City</span>
-        <input type="text" ng-model="register.City" required>
+        <input type="text" name="City" ng-model="register.City" required>
       </label>
       <label class="item item-input">
         <span class="input-label">PIN Code</span>
-        <input type="number" ng-model="register.Pincode" required>
+        <input type="number" name="Pincode" ng-model="register.Pincode" required>
       </label>
 
     </div>
     <p class="txt-center">Please pick the best word that represents you.</p>
     <ion-list>
-      <ion-radio ng-model="register.User_type" ng-value="'1'">Manufacturer</ion-radio>
-      <ion-radio ng-model="register.User_type" ng-value="'2'">Krushi Kendra</ion-radio>
-      <ion-radio ng-model="register.User_type" ng-value="'3'">Farmer</ion-radio>
+      <ion-radio ng-model="register.User_type" name="User_type" ng-value="'1'" required>Manufacturer</ion-radio>
+      <ion-radio ng-model="register.User_type" name="User_type" ng-value="'2'" required>Krushi Kendra</ion-radio>
+      <ion-radio ng-model="register.User_type" name="User_type" ng-value="'3'" required>Farmer</ion-radio>
     </ion-list>
 
-     <button class="button button-block button-assertive" ng-click="getRegister(register)">Register</button>
+     <button class="button button-block button-assertive" ng-disabled="registerForm.$invalid" ng-click="getRegister(register)">Register</button>
         <br />
      <button class="button button-clear button-block button-assertive" ng-click="loginChange('Login')">Existing user?</button>
    </div>

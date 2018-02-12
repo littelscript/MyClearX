@@ -34,7 +34,7 @@
         var defer = $q.defer();
         factory.sourceType = sourceType;
         var options = {
-          quality: 50,
+          quality: 100,
           allowEdit: true,
           destinationType: Camera.DestinationType.FILE_URI,
           sourceType: sourceType,
@@ -94,14 +94,12 @@
 
         $q.all(defs).then(function (arguments) {
           
-          //console.dir(fd);
-         
           angular.forEach(alljsonData,function(value, key){
 
             fd.append(key,value);
           });
           factory.uploadAjax(fd);
-          //factory.uploadnew(fd);
+          
         });
 
 
@@ -115,18 +113,19 @@
       }
 
       factory.uploadAjax = function (fd) {
-
+        utils.loaderShow();
         $http({
           method: 'POST',
-          url: 'http://myclearx.com/myclearx/upload.php',
+          url: 'http://myclearx.com/myclearx/product/addProduct.php',
           headers: {'Content-Type': undefined},
           data: fd
         })
           .success(function (data) {
                  console.dir(data);
+                 utils.loaderHide();
           })
           .error(function (data, status) {
-
+                utils.loaderHide();
           });
       }
 
@@ -158,6 +157,7 @@
 
       factory.fileUploadSetUp = function (imagePath) {
         var defer = $q.defer();
+        var currentName = imagePath.replace(/^.*[\\\/]/, '');
         var d = new Date(),
           n = d.getTime(),
           newFileName = n + ".jpg";
