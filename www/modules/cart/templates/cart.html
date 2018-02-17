@@ -8,6 +8,16 @@
     </ion-nav-bar>
     <ion-content>
         <div class="col cart-list">
+            <div ng-if="!cartItems[0]" >
+                 <div class="list card">
+                    <div class="item item-image" style="padding:65px">
+                        <img src="img/emptyCart.png">
+                    </div>
+                     <a class="item assertive text-center">
+                       YOUR CART IS EMPTY!
+                        </a>
+                  </div>
+            </div>
             <div class="list" ng-repeat="cart in cartItems track by $index">
                 <div class="item item-thumbnail-left">
                     <img ng-src="http://myclearx.com/myclearx/uploads/{{cart.image[0].Product_image}}">
@@ -30,9 +40,18 @@
                         <input type="number" class="quantity" ng-model="cart.productCount">
                         <button class="btn-qty btn-add quantity_add" ng-click="itemcountInc(cart);">+</button>
                     </div>
-                </div>
+                </div>                
             </div>{{cart.productCount}}
-            <button class="button button-block button-assertive" ng-click="Checkout()">Checkout</button>
+            <div class="list">
+                <div class="item item-divider text-center" ng-if="cartItems[0]">
+                  Total Amount : 1000
+                </div>
+            </div>
+
+
+
+            
+            <button ng-if="cartItems[0]" class="button button-block button-assertive" ng-click="Checkout()">Checkout</button>
         </div>
 
 
