@@ -11,6 +11,7 @@
 
                 $scope.cartItems.splice(index,1);
                 $scope.$emit("cartToLocal",$scope.cartItems);
+                $scope.getTotal();
             });
             
         }
@@ -23,6 +24,7 @@
                 utils.showAlert("Item quantity is more than stock");
             }else{
                 $scope.$emit("cartToLocal",$scope.cartItems);
+                $scope.getTotal();
             }
         }
 
@@ -31,6 +33,7 @@
 
                 a.productCount--;
                 $scope.$emit("cartToLocal",$scope.cartItems);
+                $scope.getTotal();
             }
         }
 
@@ -38,6 +41,16 @@
 
             console.dir($scope.cartItems);
         }
+
+         $scope.TotalCount=0;
+        $scope.getTotal=function(){
+            $scope.TotalCount=0;
+            for(var i=0;i<$scope.cartItems.length;i++){
+                $scope.TotalCount+=parseFloat($scope.cartItems[i].Price)*parseFloat($scope.cartItems[i].productCount);
+            }
+        }
+
+        $scope.getTotal();
     
     
     }

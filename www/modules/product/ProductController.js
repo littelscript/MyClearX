@@ -25,13 +25,29 @@
 
         $scope.addToCart = function (data) {
             if ($scope.count > 0) {
-
+                if($scope.checkCartProduct(data)){
                 data.productCount = $scope.count;
                 $scope.cartItems.push(data);
                 console.dir($scope.cartItems);
-
                 $scope.$emit("cartToLocal", $scope.cartItems);
+                }else{
+                    utils.showAlert("Item is already in cart.");
+                }
             }
+        }
+
+        $scope.checkCartProduct = function (newItem) {
+
+            for (var i = 0; i < $scope.cartItems.length; i++) {
+
+                if (newItem.Tab_id == $scope.cartItems[i].Tab_id) {
+
+                    return false;
+                }
+            }
+            return true;
+
+
         }
         console.dir($scope.productList);
 

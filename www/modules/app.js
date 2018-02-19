@@ -69,6 +69,7 @@
                 })
                 .state('app.cart', {
                     url: '/cart',
+                    cache: false,
                     views: {
                         'menuContent': {
                             templateUrl: 'modules/cart/templates/cart.html',

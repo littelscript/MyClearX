@@ -29,8 +29,10 @@
         <p class="no-margin"></p>
          <p>
             <b>Rs. {{a.Price}} Only</b> <br /> <br />
+            <b>Brand name: </b> <br /> <span>{{a.Brand_name}}</span><br /> <br /> 
              <b>contents: </b> <br /> <span>{{a.Content}}</span><br /> <br /> 
             <b>Expiry Date: </b> <br /> <span >{{a.Expiry_date}}</span><br /> <br /> 
+            <b>Packing size: </b> <br /> <span ng-bind="a.Packaging"></span><br /> <br /> 
             <b>Description: </b> <br /> <span ng-bind="a.Description"></span><br /> 
            
          </p>

@@ -113,8 +113,9 @@
       <ion-radio ng-model="register.User_type" name="User_type" ng-value="'2'" required>Krushi Kendra</ion-radio>
       <ion-radio ng-model="register.User_type" name="User_type" ng-value="'3'" required>Farmer</ion-radio>
     </ion-list>
-
-     <button class="button button-block button-assertive" ng-disabled="registerForm.$invalid" ng-click="getRegister(register)">Register</button>
+    
+    <button class="button button-block button-assertive" ng-if="!registerBtn" ng-disabled="registerForm.$invalid" ng-click="getOTP(register)">Register</button> 
+    <button class="button button-block button-assertive" ng-if="registerBtn" ng-disabled="registerForm.$invalid" ng-click="getRegister(register)">Register</button>
         <br />
      <button class="button button-clear button-block button-assertive" ng-click="loginChange('Login')">Existing user?</button>
    </div>
