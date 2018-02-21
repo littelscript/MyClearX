@@ -55,7 +55,7 @@
 
         $scope.deleteProductById = function (data,index) {
             
-            httpService.getHttp(url.deleteProduct, { 'Tab_id': data.Tab_id })
+            httpService.getHttp(url.deleteProduct, { 'Tab_id': data.Tab_id,'ImageArray':data.image })
             .then(function (reponse) {
                
                 if(reponse.status){
