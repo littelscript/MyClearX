@@ -30,25 +30,25 @@
    </div>
   </form>   
  
-  <form class="row" ng-if="loginRegister == 'Reset Password'">
+  <form class="row" ng-if="loginRegister == 'Reset Password'" name="forgotpasswordForm">
      <div class="col">
          <p class="txt-center">Please enter your registered mobile number.</p>
           <label class="item item-input">
-            <span class="input-label">Mobile No:</span>
-            <input type="number" required>               
+            <span class="input-label">Email</span>
+            <input type="email" name="Email" ng-model="reset.Email" required>               
           </label>
                 <div class="row">
                     <div class="col"> </div>
-                    <div class="col"><button class="button button-outline button-block button-assertive" ng-disabled="loginForm.$invalid" ng-click="getOTP();">Request OTP</button></div>
+                    <div class="col"><button class="button button-outline button-block button-assertive" ng-disabled="forgotpasswordForm.Email.$invalid" ng-click="forgotpassword(reset);">Request OTP</button></div>
                </div>
         <div>
             <label class="item item-input">
             <span class="input-label">OTP:</span>
-            <input type="number" required>               
+            <input type="number" name="Otp" ng-model="reset.otp" required>               
         </label>
         <div class="row">
-             <div class="col"><button class="button button-outline button-block button-assertive" ng-disabled="loginForm.$invalid" ng-click="loginChange('Login')">Back</button></div>
-             <div class="col"><button class="button button-block button-assertive" ng-disabled="loginForm.$invalid" ng-click="submitOTP();">Submit OTP</button></div>
+             <div class="col"><button class="button button-outline button-block button-assertive" ng-disabled="forgotpasswordForm.$invalid" ng-click="loginChange('Login')">Back</button></div>
+             <div class="col"><button class="button button-block button-assertive" ng-disabled="forgotpasswordForm.$invalid" ng-click="submitOTP();">Submit OTP</button></div>
          </div>
         </div>
      </div>

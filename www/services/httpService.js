@@ -42,6 +42,7 @@
           factory.updateProfile=utils.baseUrl+'profile/updateProfile.php';
           factory.updateProduct=utils.baseUrl+'product/updateProduct.php';
           factory.otpsinup=utils.baseUrl+'sinup/otpsinup.php';
+          factory.forgotpassword=utils.baseUrl+'forgotpassword/forgotpassword.php';
 
 
 

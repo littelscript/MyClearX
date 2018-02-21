@@ -114,6 +114,51 @@
             }, 3000);*/
            };
 
+           $scope.opt="";
+           $scope.dataSet="";
+           $scope.reset={};
+           $scope.forgotpassword =function(data){
+            $scope.opt=""; 
+            $scope.dataSet="";     
+            httpService.getHttp(url.forgotpassword,data).then(function (response) {
+                if(response.status){
+                    $scope.opt=response.otp;
+                    $scope.dataSet=response.data;
+                    utils.showAlert(errorService["603"]);
+                 }else{
+               
+                    utils.showAlert(errorService[response.errorCode]);
+                  }
+    
+                
+            }, function () {
+                utils.showAlert(errorService['default']);
+            });
+
+           }
+
+           $scope.submitOTP=function(){
+
+               if($scope.opt==$scope.reset.otp){
+
+                    utils.setLocalStorage("userDetails",$scope.dataSet);
+                    $scope.$emit("loginSuccess");
+                    $ionicHistory.nextViewOptions({
+                        disableBack: true
+                    });
+                    utils.showAlert(errorService["604"]).then(function(){
+
+                        $state.go("app.home");
+                    });
+
+                   
+                  
+               }else{
+                utils.showAlert(errorService["605"]);
+               }
+               
+           }
+
 
     };
 

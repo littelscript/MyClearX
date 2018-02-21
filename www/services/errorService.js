@@ -19,8 +19,12 @@
             "502":"No record found!",
             "503":"Unable to get your location.<br>Please check your gps & try again",
             "504":"Email already exist!",
+            "505":"User doesn't exist!",
             "601":"Please select location!",
             "602":"Image not more than 4!",
+            "603":"OTP sent successfully!",
+            "604":"OTP verfiy successfully!",
+            "605":"OTP doesn't match!",
             "default":"Please try again!"
 
 

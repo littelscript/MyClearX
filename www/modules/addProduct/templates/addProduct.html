@@ -15,7 +15,7 @@
             </div>
             <select ng-model="ProductData.Product_type" name="Product_type" required>
               <option value="1">Pesticides</option>
-              <option value="2" selected>Insecticides</option>
+              <option value="2" selected>Equipment & tools</option>
               <option value="3">Seeds</option>
               <option value="4">Fertiliser</option>
             </select>
@@ -35,6 +35,10 @@
           <label class="item item-input item-stacked-label">
             <span class="input-label">Stock QTY.</span>
             <input type="text" placeholder="In stock quantity" name="In_stock" ng-model="ProductData.In_stock" required>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Quantity</span>
+            <input type="text" placeholder="In stock quantity" name="Quantity" ng-model="ProductData.Quantity" required>
           </label>
           <label class="item item-input item-select">
             <div class="input-label">
