@@ -74,7 +74,7 @@
     
     
         }
-    
+        $scope.otpStatus=false;
         $scope.showPopup = function() {
             $scope.data={};
             $scope.errorOtp=false;
@@ -90,15 +90,16 @@
                   text: '<b>Save</b>',
                   type: 'button-assertive',
                   onTap: function(e) {
-                     
+                    $scope.otpStatus=false;
                       $scope.errorOtp=false;
                      if(otp==this.element[0].children[0].children[1].children[1].value){
                       myPopup.close();
+                      $scope.otpStatus=true;
                      }else{
                       $scope.errorOtp=true;
                       e.preventDefault();
                     }
-
+                    //return status;
         
                   }
                 }
@@ -106,7 +107,9 @@
             });
           
             myPopup.then(function(res) {
-                $scope.getRegister($scope.register);
+                if($scope.otpStatus){
+                   $scope.getRegister($scope.register);
+                }
             });
           
             /*$timeout(function() {
