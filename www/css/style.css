@@ -133,8 +133,8 @@
     line-height:18px
 }
 .oe_product .contain .row .off_price{
-    margin-top:2px !important
-}
+    margin-top:2px !important;
+} 
 .oe_product .contain .row .off_price div{
     font-weight:bold;
     font-size:14px;
