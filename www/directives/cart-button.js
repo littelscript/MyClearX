@@ -10,7 +10,8 @@
         directive.scope={
             data:"="
         }
-        directive.template ='<a class="button button-icon button-clear" href="#/app/cart" menu-close><i class="ion-ios-cart icon"></i></a><ion-badge ng-if="status">{{count}}</ion-badge>'; 
+        //directive.template ='<a class="button button-icon button-clear" href="#/app/cart" menu-close><i class="ion-ios-cart icon"></i></a><ion-badge ng-if="status">{{count}}</ion-badge>'; 
+        directive.template='<button class="button button-icon button-clear ion-ios-cart"  ui-sref="app.cart" menu-close ><span class="cart-item-ind" ng-if="status">{{count}}</span></button>';
         directive.controller=function($scope){
             $scope.count=$scope.data;    
         }
