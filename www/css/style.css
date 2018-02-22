@@ -125,7 +125,7 @@
         word-break: break-all;
 }
 .oe_product .contain .row .price-long span{
-    font-size:15px;
+    font-size:14px;
     line-height:22px
 }
 .oe_product .contain .row .price-mega span{
@@ -137,7 +137,7 @@
 }
 .oe_product .contain .row .off_price div{
     font-weight:bold;
-    font-size:15px;
+    font-size:14px;
     color:#F15440
 }
 .oe_product .contain .row .c_price{
@@ -437,3 +437,17 @@
 .select-box img{ 
     padding:1px; background: red; border-radius: 2px;
 }
+
+.cart-item-ind{position: absolute;
+    top: -6px;
+    left: 3px;
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    display: flex;
+    color: #ff0404;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 3px;
+    line-height: 1.5;
+    border: 1px solid red;}
