@@ -3,8 +3,8 @@
 
     myclearx.controller('ProductController', productController);
 
-    productController.$inject = ['utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url'];
-    function productController(utils, $scope, $http, $ionicPopup, httpService, url) {
+    productController.$inject = ['$cordovaToast','$cordovaVibration','utils', '$scope', '$http', '$ionicPopup', 'httpService', 'url'];
+    function productController($cordovaToast,$cordovaVibration,utils, $scope, $http, $ionicPopup, httpService, url) {
         $scope.count = 1;
         $scope.itemcountInc = function () {
 
@@ -26,12 +26,17 @@
         $scope.addToCart = function (data) {
             if ($scope.count > 0) {
                 if($scope.checkCartProduct(data)){
-                data.productCount = $scope.count;
-                $scope.cartItems.push(data);
-                console.dir($scope.cartItems);
-                $scope.$emit("cartToLocal", $scope.cartItems);
+                    data.productCount = $scope.count;
+                    $scope.cartItems.push(data);
+                    console.dir($scope.cartItems);
+                    $scope.$emit("cartToLocal", $scope.cartItems);
+                    $scope.$broadcast("show",$scope.cartItems.length);
+                    $cordovaToast.showShortCenter('Item added in cart');
+                    navigator.vibrate(500);
+                        
                 }else{
                     utils.showAlert("Item is already in cart.");
+                    navigator.vibrate(500);
                 }
             }
         }

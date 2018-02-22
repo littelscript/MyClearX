@@ -26,6 +26,7 @@
                 $scope.$emit("cartToLocal",$scope.cartItems);
                 $scope.getTotal();
             }
+            
         }
 
         $scope.itemcountDesc = function (a) {

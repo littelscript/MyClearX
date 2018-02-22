@@ -47,7 +47,7 @@
             <input type="number" name="Otp" ng-model="reset.otp" required>               
         </label>
         <div class="row">
-             <div class="col"><button class="button button-outline button-block button-assertive" ng-disabled="forgotpasswordForm.$invalid" ng-click="loginChange('Login')">Back</button></div>
+             <div class="col"><button class="button button-outline button-block button-assertive"  ng-click="loginChange('Login')">Back</button></div>
              <div class="col"><button class="button button-block button-assertive" ng-disabled="forgotpasswordForm.$invalid" ng-click="submitOTP();">Submit OTP</button></div>
          </div>
         </div>
@@ -103,7 +103,7 @@
       </label>
       <label class="item item-input">
         <span class="input-label">PIN Code</span>
-        <input type="number" name="Pincode" ng-model="register.Pincode" required>
+        <input type="number" name="Pincode" maxlength="6" minlength="6" ng-model="register.Pincode" required>
       </label>
 
     </div>

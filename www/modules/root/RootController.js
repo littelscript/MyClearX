@@ -9,22 +9,27 @@
         $scope.productList = [];
         $scope.cartItems = [];
         $scope.categoryId = 0;
+        $scope.search="";
         if (utils.getLocalStorage("cartItems")) {
 
             $scope.cartItems = utils.getLocalStorage("cartItems");
+            $scope.cartCount=$scope.cartItems.length;
         }
         $scope.loginStatus = false;
         $scope.User_type = 1;
         var userDetails = null;
+        $scope.userName="Guest";
         if (utils.getLocalStorage("userDetails")) {
             $scope.loginStatus = true;
             userDetails=utils.getLocalStorage("userDetails");
             $scope.User_type=userDetails.User_type;
+            $scope.userName=userDetails.First_name;
         }
         $scope.$on("loginSuccess", function () {
             $scope.loginStatus = true;
             userDetails=utils.getLocalStorage("userDetails");
             $scope.User_type=userDetails.User_type;
+            $scope.userName=userDetails.First_name;
         });
 
         $scope.$on("productData", function (e, response) {
@@ -33,8 +38,14 @@
 
         $scope.$on("cartToLocal", function (e, cartData) {
             utils.setLocalStorage("cartItems", cartData);
+            $scope.$broadcast("cartCount",cartData.length);
+            $scope.cartCount=cartData.length;
+            
         });
-
+        $scope.productdataset=function (response) {
+            $scope.productList = response.data;
+        };
+       
 
         $scope.filenameSel = false;
 
@@ -53,6 +64,7 @@
         $scope.category = 'All';
         $scope.logOut = function () {
             utils.destroyLocalStorage('userDetails');
+            $scope.userName="Guest";
             $scope.loginStatus = false;
             $ionicHistory.nextViewOptions({
                 disableBack: true
@@ -89,6 +101,10 @@
             $ionicScrollDelegate.resize();
 
         }
+
+        $scope.$on("search", function () {
+            $scope.$broadcast("getProductList");
+        });
 
 
 

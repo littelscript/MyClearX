@@ -1,27 +1,27 @@
 <ion-view view-title="Search">
   <ion-nav-bar class="bar-assertive">
-     <ion-nav-back-button> </ion-nav-back-button> 
-     <ion-nav-buttons side="left"> <a class="button button-icon button-clear ion-android-arrow-back" menu-close href="#/app/home"> </a> </ion-nav-buttons>
-  </ion-nav-bar>    
+    <ion-nav-back-button> </ion-nav-back-button>
+    <ion-nav-buttons side="left">
+      <a class="button button-icon button-clear ion-android-arrow-back" menu-close href="#/app/home"> </a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
 
- 
+
   <ion-content>
     <div class="list col">
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="Search products">
+        <input type="text" placeholder="Search products" name="search" ng-model="search" ng-keyup="getSearch(search);">
       </label>
     </div>
     <div class="list col">
       <div class="item item-divider">
         Results
       </div>
-      <a class="item" >
-        Product Name
-      </a>
+
     </div>
 
-    <!--Document upload Below-->
+    <!--Document upload Below
     <div class="list col">
         <label class="button button-assertive button-block  button-outline" for="file-input">
           Choose Licence <input type="file" id="file-input" style="position:absolute; top:-1000%;" onchange="angular.element(this).scope().uploadFile(this.files)">
@@ -31,8 +31,44 @@
         </label>
          <button class="button button-assertive button-block">  Upload Document </button>
     </div><!--./ endDocument upload-->
-  
-  
+    <div class="home-item-grid">
+      <div class="pos-relative" ng-repeat="product in productList">
+
+        <div class="oe_product">
+          <div class="image_region">
+            <div class="oe_product_image">
+              <a href="#/app/home/:{{$index + 1}}" ng-click="productOpen($index + 1)">
+                <img class="img img-responsive lazy" ng-src="http://myclearx.com/myclearx/uploads/{{product.image[0].Product_image}}">
+              </a>
+            </div>
+          </div>
+          <div class="contain">
+            <div class="row">
+              <div class="pname-long">
+                <span>{{product.Product_name}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="price-long pull-left">
+                <span>Rs. </span>
+                <span>{{product.Price}}</span>&nbsp; </div>
+            </div>
+            <div class="row">
+              <div class="c_price"> Expiry Date:
+                <div class="mr8" style="white-space: nowrap;">&nbsp;
+                  <span class="oe_currency_value">{{product.Expiry_date}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+    </div>
+    </div>
+
+
 
   </ion-content>
 </ion-view>
