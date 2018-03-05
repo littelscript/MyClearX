@@ -1,0 +1,65 @@
+<ion-view view-title="Edit">
+  <ion-nav-bar class="bar-assertive myClearx-bar">
+    <ion-nav-back-button> </ion-nav-back-button>
+    <ion-nav-buttons side="left"> <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button> </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="col profilepage">
+        <form name="my">
+      <div class="list">
+        <p ng-if="errorFlag">{{errorMsg}}</p>
+        <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="text-danger">Enter a valid email.</p>
+        <label class="item item-input">
+        <span class="input-label">First Name</span>
+        <input type="text" ng-model="register.First_name" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label">Last Name</span>
+        <input type="text" ng-model="register.Last_name" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label">E-mail</span>
+        <input type="email" name="email" ng-model="register.Email" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label">Mobile No.</span>
+        <input type="number" ng-model="register.Mobile_no" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="register.Password" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label">Repeat Password</span>
+        <input type="password" ng-model="register.C_password" required>
+      </label>
+        <div class="item item-divider">
+          Address
+        </div>
+        <label class="item item-input">       
+        <textarea placeholder="Address line 1" ng-model="register.Address_line_1"></textarea>
+      </label>
+        <label class="item item-input">       
+        <textarea placeholder="Address line 1" ng-model="register.Address_line_2"></textarea>
+      </label>
+        <label class="item item-input">
+        <span class="input-label" >Landmark</span>
+        <input type="text" ng-model="register.Landmark" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label" >City</span>
+        <input type="text" ng-model="register.City" required>
+      </label>
+        <label class="item item-input">
+        <span class="input-label" >PIN Code</span>
+        <input type="number"  maxlength="6" minlength="6" ng-model="register.Pincode" required>
+      </label>
+
+
+      </div>
+
+      <button class="button button-block button-assertive" ng-click="updateProfile(register);" ng-disabled="!my.$dirty">Save</button>
+        </form>
+    </div>
+  </ion-content>
+</ion-view>

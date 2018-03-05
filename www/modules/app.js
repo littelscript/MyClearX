@@ -35,10 +35,11 @@
                     if (!exitStatus) {
                         exitStatus = true;
                     }
+                    e.preventDefault();
                 }else{
                     //$state.go('app.home');
                 }
-                e.preventDefault();
+                
                 return false;
             }, 101);
 
@@ -128,6 +129,25 @@
                         'menuContent': {
                             templateUrl: 'modules/login/templates/login.html',
                             controller: "LoginController"
+
+                        }
+                    }
+                }).state('app.admin', {
+                    url: '/admin',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/admin/templates/admin.html',
+                            controller: "AdminController"
+
+                        }
+                    }
+                }).state('app.edit', {
+                    url: '/edit',
+                    params: { data: null },
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'modules/admin/edit/templates/editadmin.html',
+                            controller: "AdminEditController"
 
                         }
                     }

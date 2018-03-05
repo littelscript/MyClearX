@@ -450,4 +450,9 @@
     border-radius: 50%;
     padding: 3px;
     line-height: 1.5;
-    border: 1px solid red;}
+    border: 1px solid red;
+}
+.item-avatar.padding-text{
+
+    padding-left: 20px;
+}
